@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "app_roles",
+  "info": {
+    "singularName": "app-role",
+    "pluralName": "app-roles",
+    "displayName": "app-roles",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "role": {
+      "type": "string"
+    },
+    "app_users": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::app-user.app-user",
+      "mappedBy": "app_role"
+    },
+    "permissions": {
+      "type": "json"
+    }
+  }
+}
