@@ -1,4 +1,6 @@
 import '../styles/globals.css'
+import { Html } from 'next/document'
+import Head from "next/head";
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />
