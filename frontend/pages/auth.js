@@ -29,12 +29,10 @@ export default function Auth() {
 
     function submitLogin(e) {
         const error = {
-            login: !form.login && "Строка не должна быть пусто",
+            login: !form.login && "Строка не должна быть пустой",
             password: !form.password && "Строка не должна быть пустой"
         }
-
-        setError(error)
-
+        setError(error);
         e.preventDefault();
     }
 
