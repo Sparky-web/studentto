@@ -1,13 +1,8 @@
 import Head from 'next/head'
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
-import TextField from '@mui/material/TextField';
-import Container from "@mui/material/Container";
 import Box from '@mui/material/Box';
-import Grid from "@mui/material/Grid";
 import Link from 'next/link';
-import {FormControlLabel} from "@mui/material";
-import Checkbox from "@mui/material/Checkbox";
 
 
 export default function Home() {
