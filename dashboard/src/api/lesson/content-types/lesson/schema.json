@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "lessons",
+  "info": {
+    "singularName": "lesson",
+    "pluralName": "lessons",
+    "displayName": "lessons",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "group": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::app-group.app-group"
+    },
+    "from": {
+      "type": "datetime"
+    },
+    "to": {
+      "type": "datetime"
+    },
+    "teacher": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::app-user.app-user"
+    }
+  }
+}

@@ -29,6 +29,21 @@
       "relation": "manyToOne",
       "target": "api::app-role.app-role",
       "inversedBy": "app_users"
+    },
+    "group": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::app-group.app-group",
+      "inversedBy": "app_users"
+    },
+    "university": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::app-university.app-university",
+      "inversedBy": "users"
+    },
+    "password": {
+      "type": "string"
     }
   }
 }

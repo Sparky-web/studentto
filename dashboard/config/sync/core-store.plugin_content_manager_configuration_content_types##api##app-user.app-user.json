@@ -1,0 +1,215 @@
+{
+  "key": "plugin_content_manager_configuration_content_types::api::app-user.app-user",
+  "value": {
+    "uid": "api::app-user.app-user",
+    "settings": {
+      "bulkable": true,
+      "filterable": true,
+      "searchable": true,
+      "pageSize": 100,
+      "mainField": "username",
+      "defaultSortBy": "username",
+      "defaultSortOrder": "ASC"
+    },
+    "metadatas": {
+      "id": {
+        "edit": {},
+        "list": {
+          "label": "id",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "username": {
+        "edit": {
+          "label": "username",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "username",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "firstName": {
+        "edit": {
+          "label": "firstName",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "firstName",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "lastName": {
+        "edit": {
+          "label": "lastName",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "lastName",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "middleName": {
+        "edit": {
+          "label": "middleName",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "middleName",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "app_role": {
+        "edit": {
+          "label": "app_role",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "role"
+        },
+        "list": {
+          "label": "app_role",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "university": {
+        "edit": {
+          "label": "university",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "university"
+        },
+        "list": {
+          "label": "university",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "group": {
+        "edit": {
+          "label": "group",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "group",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "password": {
+        "edit": {
+          "label": "password",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "password",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "createdAt": {
+        "edit": {
+          "label": "createdAt",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true
+        },
+        "list": {
+          "label": "createdAt",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "updatedAt": {
+        "edit": {
+          "label": "updatedAt",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true
+        },
+        "list": {
+          "label": "updatedAt",
+          "searchable": true,
+          "sortable": true
+        }
+      }
+    },
+    "layouts": {
+      "list": [
+        "id",
+        "username",
+        "firstName",
+        "lastName",
+        "middleName",
+        "app_role",
+        "createdAt"
+      ],
+      "edit": [
+        [
+          {
+            "name": "username",
+            "size": 6
+          },
+          {
+            "name": "firstName",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "lastName",
+            "size": 6
+          },
+          {
+            "name": "middleName",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "password",
+            "size": 6
+          }
+        ]
+      ],
+      "editRelations": [
+        "app_role",
+        "university",
+        "group"
+      ]
+    }
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}

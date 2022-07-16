@@ -1,0 +1,147 @@
+{
+  "name": "Author",
+  "code": "strapi-author",
+  "description": "Authors can manage the content they have created.",
+  "permissions": [
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::app-role.app-role",
+      "properties": {
+        "fields": [
+          "role",
+          "app_users",
+          "permissions"
+        ]
+      },
+      "conditions": [
+        "admin::is-creator"
+      ]
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::app-role.app-role",
+      "properties": {},
+      "conditions": [
+        "admin::is-creator"
+      ]
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::app-role.app-role",
+      "properties": {
+        "fields": [
+          "role",
+          "app_users",
+          "permissions"
+        ]
+      },
+      "conditions": [
+        "admin::is-creator"
+      ]
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::app-role.app-role",
+      "properties": {
+        "fields": [
+          "role",
+          "app_users",
+          "permissions"
+        ]
+      },
+      "conditions": [
+        "admin::is-creator"
+      ]
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::app-user.app-user",
+      "properties": {
+        "fields": [
+          "username",
+          "firstName",
+          "lastName",
+          "middleName",
+          "app_role"
+        ]
+      },
+      "conditions": [
+        "admin::is-creator"
+      ]
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::app-user.app-user",
+      "properties": {},
+      "conditions": [
+        "admin::is-creator"
+      ]
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::app-user.app-user",
+      "properties": {
+        "fields": [
+          "username",
+          "firstName",
+          "lastName",
+          "middleName",
+          "app_role"
+        ]
+      },
+      "conditions": [
+        "admin::is-creator"
+      ]
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::app-user.app-user",
+      "properties": {
+        "fields": [
+          "username",
+          "firstName",
+          "lastName",
+          "middleName",
+          "app_role"
+        ]
+      },
+      "conditions": [
+        "admin::is-creator"
+      ]
+    },
+    {
+      "action": "plugin::upload.assets.copy-link",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::upload.assets.create",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::upload.assets.download",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::upload.assets.update",
+      "subject": null,
+      "properties": {},
+      "conditions": [
+        "admin::is-creator"
+      ]
+    },
+    {
+      "action": "plugin::upload.read",
+      "subject": null,
+      "properties": {},
+      "conditions": [
+        "admin::is-creator"
+      ]
+    }
+  ]
+}

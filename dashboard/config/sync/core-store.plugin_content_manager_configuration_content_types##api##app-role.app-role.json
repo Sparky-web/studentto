@@ -1,0 +1,124 @@
+{
+  "key": "plugin_content_manager_configuration_content_types::api::app-role.app-role",
+  "value": {
+    "uid": "api::app-role.app-role",
+    "settings": {
+      "bulkable": true,
+      "filterable": true,
+      "searchable": true,
+      "pageSize": 10,
+      "mainField": "role",
+      "defaultSortBy": "role",
+      "defaultSortOrder": "ASC"
+    },
+    "metadatas": {
+      "id": {
+        "edit": {},
+        "list": {
+          "label": "id",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "role": {
+        "edit": {
+          "label": "role",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "role",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "app_users": {
+        "edit": {
+          "label": "app_users",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "username"
+        },
+        "list": {
+          "label": "app_users",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "permissions": {
+        "edit": {
+          "label": "permissions",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "permissions",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "createdAt": {
+        "edit": {
+          "label": "createdAt",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true
+        },
+        "list": {
+          "label": "createdAt",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "updatedAt": {
+        "edit": {
+          "label": "updatedAt",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true
+        },
+        "list": {
+          "label": "updatedAt",
+          "searchable": true,
+          "sortable": true
+        }
+      }
+    },
+    "layouts": {
+      "list": [
+        "id",
+        "role",
+        "app_users",
+        "createdAt"
+      ],
+      "editRelations": [
+        "app_users"
+      ],
+      "edit": [
+        [
+          {
+            "name": "role",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "permissions",
+            "size": 12
+          }
+        ]
+      ]
+    }
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}

@@ -1,0 +1,127 @@
+{
+  "name": "Editor",
+  "code": "strapi-editor",
+  "description": "Editors can manage and publish contents including those of other users.",
+  "permissions": [
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::app-role.app-role",
+      "properties": {
+        "fields": [
+          "role",
+          "app_users",
+          "permissions"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::app-role.app-role",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::app-role.app-role",
+      "properties": {
+        "fields": [
+          "role",
+          "app_users",
+          "permissions"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::app-role.app-role",
+      "properties": {
+        "fields": [
+          "role",
+          "app_users",
+          "permissions"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::app-user.app-user",
+      "properties": {
+        "fields": [
+          "username",
+          "firstName",
+          "lastName",
+          "middleName",
+          "app_role"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::app-user.app-user",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::app-user.app-user",
+      "properties": {
+        "fields": [
+          "username",
+          "firstName",
+          "lastName",
+          "middleName",
+          "app_role"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::app-user.app-user",
+      "properties": {
+        "fields": [
+          "username",
+          "firstName",
+          "lastName",
+          "middleName",
+          "app_role"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::upload.assets.copy-link",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::upload.assets.create",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::upload.assets.download",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::upload.assets.update",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::upload.read",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    }
+  ]
+}

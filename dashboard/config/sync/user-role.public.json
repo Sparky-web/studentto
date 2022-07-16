@@ -1,0 +1,34 @@
+{
+  "name": "Public",
+  "description": "Default role given to unauthenticated user.",
+  "type": "public",
+  "permissions": [
+    {
+      "action": "api::app-user.app-user.create"
+    },
+    {
+      "action": "api::app-user.app-user.delete"
+    },
+    {
+      "action": "api::app-user.app-user.find"
+    },
+    {
+      "action": "api::app-user.app-user.findOne"
+    },
+    {
+      "action": "api::app-user.app-user.update"
+    },
+    {
+      "action": "plugin::users-permissions.auth.callback"
+    },
+    {
+      "action": "plugin::users-permissions.auth.connect"
+    },
+    {
+      "action": "plugin::users-permissions.auth.register"
+    },
+    {
+      "action": "plugin::users-permissions.user.me"
+    }
+  ]
+}

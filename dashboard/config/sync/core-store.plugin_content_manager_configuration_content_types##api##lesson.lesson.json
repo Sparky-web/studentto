@@ -1,0 +1,161 @@
+{
+  "key": "plugin_content_manager_configuration_content_types::api::lesson.lesson",
+  "value": {
+    "uid": "api::lesson.lesson",
+    "settings": {
+      "bulkable": true,
+      "filterable": true,
+      "searchable": true,
+      "pageSize": 10,
+      "mainField": "name",
+      "defaultSortBy": "name",
+      "defaultSortOrder": "ASC"
+    },
+    "metadatas": {
+      "id": {
+        "edit": {},
+        "list": {
+          "label": "id",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "name": {
+        "edit": {
+          "label": "name",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "name",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "group": {
+        "edit": {
+          "label": "group",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "group",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "from": {
+        "edit": {
+          "label": "from",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "from",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "to": {
+        "edit": {
+          "label": "to",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "to",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "teacher": {
+        "edit": {
+          "label": "teacher",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "username"
+        },
+        "list": {
+          "label": "teacher",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "createdAt": {
+        "edit": {
+          "label": "createdAt",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true
+        },
+        "list": {
+          "label": "createdAt",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "updatedAt": {
+        "edit": {
+          "label": "updatedAt",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true
+        },
+        "list": {
+          "label": "updatedAt",
+          "searchable": true,
+          "sortable": true
+        }
+      }
+    },
+    "layouts": {
+      "edit": [
+        [
+          {
+            "name": "name",
+            "size": 6
+          },
+          {
+            "name": "from",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "to",
+            "size": 6
+          }
+        ]
+      ],
+      "editRelations": [
+        "group",
+        "teacher"
+      ],
+      "list": [
+        "id",
+        "name",
+        "createdAt",
+        "group",
+        "from",
+        "to",
+        "teacher"
+      ]
+    }
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}
