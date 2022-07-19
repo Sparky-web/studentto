@@ -7,6 +7,7 @@ import Grid from "@mui/material/Grid";
 import Checkbox from '@mui/material/Checkbox';
 import { FormControlLabel } from "@mui/material";
 import Head from "next/head";
+import axios from "axios";
 
 export default function Auth() {
     const [hide, setHide] = useState(true);
@@ -28,19 +29,21 @@ export default function Auth() {
 
     function hidePassword() { setHide(!hide); }
 
-    function submitLogin(e) {
+    async function submitLogin(e) {
         const error = {
             login: !form.login && "Строка не должна быть пустой",
             password: !form.password && "Строка не должна быть пустой"
         }
         setError(error);
         e.preventDefault();
+        const info = await axios.get("http://localhost:1488");
+        console.log(info);
     }
 
     return (
         <div>
             <Head>
-                <title>Студентто - Профиль</title>
+                <title>Студентто - Авторизация</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Container>

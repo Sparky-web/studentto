@@ -13,7 +13,6 @@ export class UsersService {
                     username
                 }
             }))
-
             return user
         } catch (e) {
             return null
