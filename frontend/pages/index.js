@@ -21,13 +21,6 @@ export default function Home() {
                 </div>
             </Stack>
         </Box>
-        <Box sx={{width: '100%', height: '150px'}}>
-            <Stack spacing={2} direction={'row'} justifyContent={'center'} sx={ {p: 1 }}>
-                <div>
-
-                </div>
-            </Stack>
-        </Box>
     </div>
   )
 }
