@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * app-group service.
+ * school service.
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::app-group.app-group');
+module.exports = createCoreService('api::school.school');

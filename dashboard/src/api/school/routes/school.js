@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * app-group router.
+ * school router.
  */
 
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createCoreRouter('api::app-group.app-group');
+module.exports = createCoreRouter('api::school.school');

@@ -2,21 +2,23 @@ import {Avatar, ListItem, ListItemAvatar, ListItemButton, ListItemText, Typograp
 import Paper from "@mui/material/Paper";
 
 export default function Lesson ( props ) {
+    const {lesson, modalData, setModalData} = props
+
     return (
-        <Paper key={props.lesson.id}>
-            <ListItemButton onClick={props.setModalData(!props.modalData)}>
+        <Paper key={lesson.id}>
+            <ListItemButton onClick={setModalData(lesson)}>
                 <ListItem>
                     <ListItemAvatar>
-                        <Avatar>{props.lesson.id + 1}</Avatar>
+                        <Avatar>{lesson.id + 1}</Avatar>
                     </ListItemAvatar>
                     <ListItemText
                         primary={
                             <div>
-                                <Typography style={{color: '#00bfff'}}>{props.lesson.name}</Typography>
-                                <Typography>{props.lesson.professor.lastName + ' ' + props.lesson.professor.firstName + ' ' + props.lesson.professor.veryLastName}</Typography>
+                                <Typography style={{color: '#00bfff'}}>{lesson.name}</Typography>
+                                <Typography>{lesson.professor.lastName + ' ' + lesson.professor.firstName + ' ' + lesson.professor.veryLastName}</Typography>
                             </div>
                         }
-                        secondary={props.lesson.start + ' - ' + props.lesson.end}
+                        secondary={lesson.start + ' - ' + lesson.end}
                     ></ListItemText>
                 </ListItem>
             </ListItemButton>

@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- *  app-user controller
+ *  school controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::app-user.app-user');
+module.exports = createCoreController('api::school.school');

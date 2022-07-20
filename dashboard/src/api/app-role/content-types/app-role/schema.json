@@ -15,12 +15,6 @@
     "role": {
       "type": "string"
     },
-    "app_users": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::app-user.app-user",
-      "mappedBy": "app_role"
-    },
     "permissions": {
       "type": "json"
     }

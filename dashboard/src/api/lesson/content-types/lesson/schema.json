@@ -15,21 +15,11 @@
     "name": {
       "type": "string"
     },
-    "group": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::app-group.app-group"
-    },
     "from": {
       "type": "datetime"
     },
     "to": {
       "type": "datetime"
-    },
-    "teacher": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::app-user.app-user"
     }
   }
 }

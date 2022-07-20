@@ -2,24 +2,31 @@ import Head from 'next/head'
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import { Analytics, AccountBox } from '@mui/icons-material';
-import {useState} from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import Paper from '@mui/material/Paper';
-import {Avatar, List, ListItem, ListItemAvatar, ListItemButton, ListItemText, Modal, Typography} from "@mui/material";
+import { Avatar, List, ListItem, ListItemAvatar, ListItemButton, ListItemText, Modal, Typography } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Lesson from "../components/Lesson.js"
 
+const modalStyles = {
+    position: 'absolute', backgroundColor: '#FFFFF9', border: '2px solid #000', boxShadow: 24,
+    width: '90vw', maxWidth: "500px", height: '500px', top: '50%', left: '50%', transform: 'translate(-50%, -50%)'
+}
+
 export default function Home() {
+    const router = useRouter()
+
     const [value, setValue] = useState(0);
-    const router = useRouter();
-    const [modalData, setModalData] = useState({ hide: false } );
+    const [modalData, setModalData] = useState(null);
+
     const onLink = (href) => {
         router.push(href);
     };
 
-    const [Data, setData] = useState({
+    const [data, setData] = useState({
         date: '20.11.2022',
         lessons: [
             {
@@ -27,17 +34,18 @@ export default function Home() {
                 start: '8:30',
                 end: '10:00',
                 name: 'Математика',
-                professor:{
+                professor: {
                     firstName: 'Алексей',
                     lastName: 'Еремеев',
                     veryLastName: 'Леонидович'
-                }
+                },
+                comment: "комментарий"
             }, {
                 id: 1,
                 start: '10:10',
                 end: '11:40',
                 name: 'Русский',
-                professor:{
+                professor: {
                     firstName: 'Наталья',
                     lastName: 'Соколова',
                     veryLastName: 'Георгиевная'
@@ -47,7 +55,7 @@ export default function Home() {
                 start: '12:10',
                 end: '13:40',
                 name: 'Литература',
-                professor:{
+                professor: {
                     firstName: 'Наталья',
                     lastName: 'Соколова',
                     veryLastName: 'Георгиевная'
@@ -57,7 +65,7 @@ export default function Home() {
                 start: '14:10',
                 end: '15:40',
                 name: 'Информатика',
-                professor:{
+                professor: {
                     firstName: 'Андрей',
                     lastName: 'Зырянов',
                     veryLastName: 'Владимирович'
@@ -67,7 +75,7 @@ export default function Home() {
                 start: '16:00',
                 end: '17:30',
                 name: 'Информатика',
-                professor:{
+                professor: {
                     firstName: 'Андрей',
                     lastName: 'Зырянов',
                     veryLastName: 'Владимирович'
@@ -77,7 +85,7 @@ export default function Home() {
                 start: '18:00',
                 end: '19:30',
                 name: 'Физика',
-                professor:{
+                professor: {
                     firstName: 'Александр',
                     lastName: 'Кравцов',
                     veryLastName: 'Сергеевич'
@@ -87,7 +95,7 @@ export default function Home() {
                 start: '19:40',
                 end: '21:10',
                 name: 'Физика',
-                professor:{
+                professor: {
                     firstName: 'Александр',
                     lastName: 'Кравцов',
                     veryLastName: 'Сергеевич'
@@ -98,33 +106,35 @@ export default function Home() {
 
     return (
         <div>
-          <Head>
-            <title>Студентто</title>
-            <link rel="icon" href="/favicon.ico" />
-          </Head>
-                <Grid
-                    container
-                    direction="column"
-                    alignItems="center"
-                    justifyContent="center"
-                    paddingBottom={8}
+            <Head>
+                <title>Студентто</title>
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
+
+            <Grid
+                container
+                direction="column"
+                alignItems="center"
+                justifyContent="center"
+                paddingBottom={8}
+            >
+                <Typography>{data.date}</Typography>
+                <Box sx={{ width: '380px', height: '3px', backgroundColor: '#000000' }} />
+
+                <Modal
+                    open={modalData}
+                    onClose={() => setModalData(null)}
                 >
-                    <Typography>{Data.date}</Typography>
-                    <Box sx={{ width: '380px', height: '3px', backgroundColor: '#000000'}}/>
+                    <Box sx={modalStyles}>
+                        {modalData.name}
+                    </Box>
+                </Modal>
 
-                    <Modal
-                        open={!!modalData}
-                        onClose={() => setModalData(!modalData)}
-                    >
-                        <Box sx={ {position: 'absolute', backgroundColor: '#FFFFF9', border: '2px solid #000', boxShadow: 24,
-                            width: '330px', height: '500px', top: '50%', left: '50%', transform: 'translate(-50%, -50%)'} }>
-                        </Box>
-                    </Modal>
+                <Stack sx={{ width: '100%', maxWidth: 380 }} spacing={1}>
+                    {data.lessons.map(lesson => <Lesson lesson={lesson} modalData={modalData} setModalData={setModalData} key={lesson.id} />)}
+                </Stack>
+            </Grid>
 
-                    <Stack sx={{ width: '100%', maxWidth: 380 }} spacing={1}>
-                        {Data.lessons.map( lesson => <Lesson lesson={lesson} modalData={modalData} setModalData={setModalData} key={lesson.id} /> )}
-                    </Stack>
-                </Grid>
             <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
                 <BottomNavigation
                     showLabels
