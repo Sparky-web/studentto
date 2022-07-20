@@ -5,13 +5,16 @@ import { Analytics, AccountBox } from '@mui/icons-material';
 import {useState} from "react";
 import { useRouter } from "next/router";
 import Paper from '@mui/material/Paper';
-import {Avatar, List, ListItem, ListItemAvatar, ListItemText, Typography} from "@mui/material";
+import {Avatar, List, ListItem, ListItemAvatar, ListItemButton, ListItemText, Modal, Typography} from "@mui/material";
 import Stack from "@mui/material/Stack";
 import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import Lesson from "../components/Lesson.js"
 
 export default function Home() {
     const [value, setValue] = useState(0);
     const router = useRouter();
+    const [modalData, setModalData] = useState({ hide: false } );
     const onLink = (href) => {
         router.push(href);
     };
@@ -99,40 +102,29 @@ export default function Home() {
             <title>Студентто</title>
             <link rel="icon" href="/favicon.ico" />
           </Head>
-            <div style={{ marginBottom: 60 }}>
                 <Grid
                     container
                     direction="column"
                     alignItems="center"
                     justifyContent="center"
+                    paddingBottom={8}
                 >
-                    <Typography style={{color: '#909090'}}>{Data.date}</Typography>
-                    <List sx={{ width: '100%', maxWidth: 380 }}>
-                        <Stack spacing={1}>
-                            {Data.lessons.map((lesson) => {
-                                return (
-                                    <Paper key={lesson.id}>
-                                        <ListItem button={true}>
-                                            <ListItemAvatar>
-                                                <Avatar>{lesson.id + 1}</Avatar>
-                                            </ListItemAvatar>
-                                            <ListItemText
-                                                primary={
-                                                <div>
-                                                    <Typography style={{color: '#00bfff'}}>{lesson.name}</Typography>
-                                                    <Typography>{lesson.professor.lastName + ' ' + lesson.professor.firstName + ' ' + lesson.professor.veryLastName}</Typography>
-                                                </div>
-                                            }
-                                                secondary={lesson.start + ' - ' + lesson.end}
-                                            ></ListItemText>
-                                        </ListItem>
-                                    </Paper>
-                                    )
-                                })}
-                        </Stack>
-                    </List>
+                    <Typography>{Data.date}</Typography>
+                    <Box sx={{ width: '380px', height: '3px', backgroundColor: '#000000'}}/>
+
+                    <Modal
+                        open={!!modalData}
+                        onClose={() => setModalData(!modalData)}
+                    >
+                        <Box sx={ {position: 'absolute', backgroundColor: '#FFFFF9', border: '2px solid #000', boxShadow: 24,
+                            width: '330px', height: '500px', top: '50%', left: '50%', transform: 'translate(-50%, -50%)'} }>
+                        </Box>
+                    </Modal>
+
+                    <Stack sx={{ width: '100%', maxWidth: 380 }} spacing={1}>
+                        {Data.lessons.map( lesson => <Lesson lesson={lesson} modalData={modalData} setModalData={setModalData} key={lesson.id} /> )}
+                    </Stack>
                 </Grid>
-            </div>
             <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
                 <BottomNavigation
                     showLabels
