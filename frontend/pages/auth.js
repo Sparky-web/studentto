@@ -8,6 +8,7 @@ import Checkbox from '@mui/material/Checkbox';
 import { FormControlLabel } from "@mui/material";
 import Head from "next/head";
 import axios from "axios";
+import ButtonBar from "../components/ButtonBar";
 
 export default function Auth() {
     const [hide, setHide] = useState(true);
@@ -65,6 +66,7 @@ export default function Auth() {
                     </form>
                 </Grid>
             </Container>
+            <ButtonBar value={1}/>
         </div>
     )
 }

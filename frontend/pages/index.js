@@ -1,15 +1,12 @@
 import Head from 'next/head'
-import BottomNavigation from '@mui/material/BottomNavigation';
-import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import { Analytics, AccountBox } from '@mui/icons-material';
 import { useState } from "react";
-import { useRouter } from "next/router";
-import Paper from '@mui/material/Paper';
 import { Modal, Typography } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Lesson from "../components/Lesson.js"
+import ButtonBar from "../components/ButtonBar"
+import {DateTime} from "luxon";
 
 const modalStyles = {
     position: 'absolute', backgroundColor: '#FFFFF9', boxShadow: 24,  borderRadius: '10px',
@@ -17,30 +14,12 @@ const modalStyles = {
 }
 
 export default function Home() {
-    const router = useRouter()
-
-    const [value, setValue] = useState(0);
     const [modalData, setModalData] = useState(null);
 
-    const onLink = (href) => {
-        router.push(href);
-    };
-    function getWeek(day){
-        switch(day){
-            case 1: return 'Понедельник'
-            case 2: return 'Вторник'
-            case 3: return 'Среда'
-            case 4: return 'Четверг'
-            case 5: return 'Пятница'
-            case 6: return 'Суббота'
-            case 7: return 'Воскресенье'
-        }
-    }
-
-    const time = new Date();
+    const time = DateTime.now().setZone("system").setLocale("ru");
     const [data, setData] = useState({
         date: '20.11.2022',
-        week: getWeek(time.getDay()),
+        week: time.toFormat("EEEE"),
         lessons: [
             {
                 id: 0,
@@ -141,7 +120,7 @@ export default function Home() {
                 <Box sx={{ width: '380px', height: '3px', backgroundColor: '#000000' }} />
 
                 <Stack sx={{ width: '100%', maxWidth: 380 }} spacing={1}>
-                    {data.lessons.map(lesson => <Lesson lesson={lesson} modalData={modalData} setModalData={setModalData} key={lesson.id} />)}
+                    {data.lessons.map(lesson => <Lesson lesson={lesson} setModalData={setModalData} key={lesson.id} />)}
                 </Stack>
             </Grid>
 
@@ -156,28 +135,13 @@ export default function Home() {
                         alignItems="center"
                         justifyContent="center"
                     >
-                        <Typography style={ {color: '#00bfff', paddingTop: 10} }>
-                            {modalData?.name}
-                        </Typography>
-                        <Typography style={ {color: '#00bfff'} }>
-                            {data.date} ({data.week})
-                        </Typography>
+                        <Typography style={ {color: '#00bfff', paddingTop: 10} }>{modalData?.name}</Typography>
+                        <Typography style={ {color: '#00bfff'} }>{data.date} ({data.week})</Typography>
+                        <Typography style={ {color: '#00bfff'} }>{modalData?.professor.lastName} {modalData?.professor.firstName} {modalData?.professor.veryLastName}</Typography>
                     </Grid>
                 </Box>
             </Modal>
-
-            <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
-                <BottomNavigation
-                    showLabels
-                    value={value}
-                    onChange={(event, newValue) => {
-                        setValue(newValue);
-                    }}
-                >
-                    <BottomNavigationAction label="Расписание" icon={<Analytics />} />
-                    <BottomNavigationAction label="Профиль" onClick={() => onLink("/auth")} icon={<AccountBox />} />
-                </BottomNavigation>
-            </Paper>
+            <ButtonBar value={0}/>
         </div>
     )
 }

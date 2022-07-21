@@ -2,8 +2,7 @@ import {Avatar, ListItem, ListItemAvatar, ListItemButton, ListItemText, Typograp
 import Paper from "@mui/material/Paper";
 
 export default function Lesson ( props ) {
-    const {lesson, modalData, setModalData} = props
-
+    const {lesson, setModalData} = props
     return (
         <Paper key={lesson.id}>
             <ListItemButton onClick={ () => setModalData(lesson)}>
