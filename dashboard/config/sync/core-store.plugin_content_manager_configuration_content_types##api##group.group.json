@@ -1,14 +1,14 @@
 {
-  "key": "plugin_content_manager_configuration_content_types::api::app-group.app-group",
+  "key": "plugin_content_manager_configuration_content_types::api::group.group",
   "value": {
-    "uid": "api::app-group.app-group",
+    "uid": "api::group.group",
     "settings": {
       "bulkable": true,
       "filterable": true,
       "searchable": true,
       "pageSize": 10,
-      "mainField": "name",
-      "defaultSortBy": "name",
+      "mainField": "title",
+      "defaultSortBy": "title",
       "defaultSortOrder": "ASC"
     },
     "metadatas": {
@@ -20,23 +20,52 @@
           "sortable": true
         }
       },
-      "name": {
+      "title": {
         "edit": {
-          "label": "name",
+          "label": "title",
           "description": "",
           "placeholder": "",
           "visible": true,
           "editable": true
         },
         "list": {
-          "label": "name",
+          "label": "title",
           "searchable": true,
           "sortable": true
         }
       },
-      "app_users": {
+      "semanticTitle": {
         "edit": {
-          "label": "app_users",
+          "label": "semanticTitle",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "semanticTitle",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "school": {
+        "edit": {
+          "label": "school",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "title"
+        },
+        "list": {
+          "label": "school",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "students": {
+        "edit": {
+          "label": "students",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -44,7 +73,7 @@
           "mainField": "username"
         },
         "list": {
-          "label": "app_users",
+          "label": "students",
           "searchable": false,
           "sortable": false
         }
@@ -81,20 +110,25 @@
     "layouts": {
       "list": [
         "id",
-        "name",
-        "app_users",
-        "createdAt"
+        "title",
+        "semanticTitle",
+        "school"
       ],
       "edit": [
         [
           {
-            "name": "name",
+            "name": "title",
+            "size": 6
+          },
+          {
+            "name": "semanticTitle",
             "size": 6
           }
         ]
       ],
       "editRelations": [
-        "app_users"
+        "school",
+        "students"
       ]
     }
   },

@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- *  app-role controller
+ *  group controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::app-role.app-role');
+module.exports = createCoreController('api::group.group');

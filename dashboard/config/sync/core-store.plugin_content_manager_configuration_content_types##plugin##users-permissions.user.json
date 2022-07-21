@@ -147,6 +147,92 @@
           "sortable": true
         }
       },
+      "firstName": {
+        "edit": {
+          "label": "firstName",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "firstName",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "lastName": {
+        "edit": {
+          "label": "lastName",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "lastName",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "veryLastName": {
+        "edit": {
+          "label": "veryLastName",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "veryLastName",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "school": {
+        "edit": {
+          "label": "school",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "title"
+        },
+        "list": {
+          "label": "school",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "group": {
+        "edit": {
+          "label": "group",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "title"
+        },
+        "list": {
+          "label": "group",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "subgroup": {
+        "edit": {
+          "label": "subgroup",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "subgroup",
+          "searchable": true,
+          "sortable": true
+        }
+      },
       "createdAt": {
         "edit": {
           "label": "createdAt",
@@ -183,9 +269,6 @@
         "email",
         "confirmed"
       ],
-      "editRelations": [
-        "role"
-      ],
       "edit": [
         [
           {
@@ -211,8 +294,33 @@
           {
             "name": "blocked",
             "size": 4
+          },
+          {
+            "name": "firstName",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "lastName",
+            "size": 6
+          },
+          {
+            "name": "veryLastName",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "subgroup",
+            "size": 4
           }
         ]
+      ],
+      "editRelations": [
+        "role",
+        "school",
+        "group"
       ]
     }
   },

@@ -63,11 +63,6 @@
       "inversedBy": "users",
       "configurable": false
     },
-    "app_role": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::app-role.app-role"
-    },
     "firstName": {
       "type": "string"
     },
@@ -76,6 +71,20 @@
     },
     "veryLastName": {
       "type": "string"
+    },
+    "school": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::school.school"
+    },
+    "group": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::group.group",
+      "inversedBy": "students"
+    },
+    "subgroup": {
+      "type": "integer"
     }
   }
 }

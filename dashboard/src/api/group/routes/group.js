@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * app-role router.
+ * group router.
  */
 
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createCoreRouter('api::app-role.app-role');
+module.exports = createCoreRouter('api::group.group');

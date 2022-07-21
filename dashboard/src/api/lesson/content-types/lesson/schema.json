@@ -4,11 +4,11 @@
   "info": {
     "singularName": "lesson",
     "pluralName": "lessons",
-    "displayName": "lessons",
+    "displayName": "Lessons",
     "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
@@ -20,6 +20,19 @@
     },
     "to": {
       "type": "datetime"
+    },
+    "group": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::group.group"
+    },
+    "professor": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "subgroup": {
+      "type": "integer"
     }
   }
 }
