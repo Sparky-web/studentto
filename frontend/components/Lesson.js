@@ -6,7 +6,7 @@ export default function Lesson ( props ) {
 
     return (
         <Paper key={lesson.id}>
-            <ListItemButton onClick={setModalData(lesson)}>
+            <ListItemButton onClick={ () => setModalData(lesson)}>
                 <ListItem>
                     <ListItemAvatar>
                         <Avatar>{lesson.id + 1}</Avatar>

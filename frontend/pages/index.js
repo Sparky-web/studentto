@@ -5,14 +5,14 @@ import { Analytics, AccountBox } from '@mui/icons-material';
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Paper from '@mui/material/Paper';
-import { Avatar, List, ListItem, ListItemAvatar, ListItemButton, ListItemText, Modal, Typography } from "@mui/material";
+import { Modal, Typography } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Lesson from "../components/Lesson.js"
 
 const modalStyles = {
-    position: 'absolute', backgroundColor: '#FFFFF9', border: '2px solid #000', boxShadow: 24,
+    position: 'absolute', backgroundColor: '#FFFFF9', boxShadow: 24,  borderRadius: '10px',
     width: '90vw', maxWidth: "500px", height: '500px', top: '50%', left: '50%', transform: 'translate(-50%, -50%)'
 }
 
@@ -25,9 +25,22 @@ export default function Home() {
     const onLink = (href) => {
         router.push(href);
     };
+    function getWeek(day){
+        switch(day){
+            case 1: return 'Понедельник'
+            case 2: return 'Вторник'
+            case 3: return 'Среда'
+            case 4: return 'Четверг'
+            case 5: return 'Пятница'
+            case 6: return 'Суббота'
+            case 7: return 'Воскресенье'
+        }
+    }
 
+    const time = new Date();
     const [data, setData] = useState({
         date: '20.11.2022',
+        week: getWeek(time.getDay()),
         lessons: [
             {
                 id: 0,
@@ -39,7 +52,7 @@ export default function Home() {
                     lastName: 'Еремеев',
                     veryLastName: 'Леонидович'
                 },
-                comment: "комментарий"
+                comment: ""
             }, {
                 id: 1,
                 start: '10:10',
@@ -49,7 +62,8 @@ export default function Home() {
                     firstName: 'Наталья',
                     lastName: 'Соколова',
                     veryLastName: 'Георгиевная'
-                }
+                },
+                comment: ""
             }, {
                 id: 2,
                 start: '12:10',
@@ -59,7 +73,8 @@ export default function Home() {
                     firstName: 'Наталья',
                     lastName: 'Соколова',
                     veryLastName: 'Георгиевная'
-                }
+                },
+                comment: ""
             }, {
                 id: 3,
                 start: '14:10',
@@ -69,7 +84,8 @@ export default function Home() {
                     firstName: 'Андрей',
                     lastName: 'Зырянов',
                     veryLastName: 'Владимирович'
-                }
+                },
+                comment: ""
             }, {
                 id: 4,
                 start: '16:00',
@@ -79,7 +95,8 @@ export default function Home() {
                     firstName: 'Андрей',
                     lastName: 'Зырянов',
                     veryLastName: 'Владимирович'
-                }
+                },
+                comment: ""
             }, {
                 id: 5,
                 start: '18:00',
@@ -89,7 +106,8 @@ export default function Home() {
                     firstName: 'Александр',
                     lastName: 'Кравцов',
                     veryLastName: 'Сергеевич'
-                }
+                },
+                comment: ""
             }, {
                 id: 6,
                 start: '19:40',
@@ -99,7 +117,8 @@ export default function Home() {
                     firstName: 'Александр',
                     lastName: 'Кравцов',
                     veryLastName: 'Сергеевич'
-                }
+                },
+                comment: ""
             }
         ]
     });
@@ -121,19 +140,31 @@ export default function Home() {
                 <Typography>{data.date}</Typography>
                 <Box sx={{ width: '380px', height: '3px', backgroundColor: '#000000' }} />
 
-                <Modal
-                    open={modalData}
-                    onClose={() => setModalData(null)}
-                >
-                    <Box sx={modalStyles}>
-                        {modalData.name}
-                    </Box>
-                </Modal>
-
                 <Stack sx={{ width: '100%', maxWidth: 380 }} spacing={1}>
                     {data.lessons.map(lesson => <Lesson lesson={lesson} modalData={modalData} setModalData={setModalData} key={lesson.id} />)}
                 </Stack>
             </Grid>
+
+            <Modal
+                open={!!modalData}
+                onClose={() => setModalData(null)}
+            >
+                <Box sx={modalStyles}>
+                    <Grid
+                        container
+                        direction="column"
+                        alignItems="center"
+                        justifyContent="center"
+                    >
+                        <Typography style={ {color: '#00bfff', paddingTop: 10} }>
+                            {modalData?.name}
+                        </Typography>
+                        <Typography style={ {color: '#00bfff'} }>
+                            {data.date} ({data.week})
+                        </Typography>
+                    </Grid>
+                </Box>
+            </Modal>
 
             <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
                 <BottomNavigation
