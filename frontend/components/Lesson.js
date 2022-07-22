@@ -1,5 +1,4 @@
-import {Avatar, ListItem, ListItemAvatar, ListItemButton, ListItemText, Typography} from "@mui/material";
-import Paper from "@mui/material/Paper";
+import {Avatar, Paper, ListItem, ListItemAvatar, ListItemButton, ListItemText, Typography} from "@mui/material";
 
 export default function Lesson ( props ) {
     const {lesson, setModalData} = props
