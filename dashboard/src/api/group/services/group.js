@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * app-role service.
+ * group service.
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::app-role.app-role');
+module.exports = createCoreService('api::group.group');

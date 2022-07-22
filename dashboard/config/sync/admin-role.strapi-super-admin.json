@@ -5,189 +5,45 @@
   "permissions": [
     {
       "action": "plugin::content-manager.explorer.create",
-      "subject": "api::app-group.app-group",
+      "subject": "api::group.group",
       "properties": {
         "fields": [
-          "name",
-          "app_users"
+          "title",
+          "semanticTitle",
+          "school",
+          "students"
         ]
       },
       "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.delete",
-      "subject": "api::app-group.app-group",
-      "properties": {},
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.publish",
-      "subject": "api::app-group.app-group",
+      "subject": "api::group.group",
       "properties": {},
       "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.read",
-      "subject": "api::app-group.app-group",
+      "subject": "api::group.group",
       "properties": {
         "fields": [
-          "name",
-          "app_users"
+          "title",
+          "semanticTitle",
+          "school",
+          "students"
         ]
       },
       "conditions": []
     },
     {
       "action": "plugin::content-manager.explorer.update",
-      "subject": "api::app-group.app-group",
+      "subject": "api::group.group",
       "properties": {
         "fields": [
-          "name",
-          "app_users"
-        ]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.create",
-      "subject": "api::app-role.app-role",
-      "properties": {
-        "fields": [
-          "role",
-          "app_users",
-          "permissions"
-        ]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.delete",
-      "subject": "api::app-role.app-role",
-      "properties": {},
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.read",
-      "subject": "api::app-role.app-role",
-      "properties": {
-        "fields": [
-          "role",
-          "app_users",
-          "permissions"
-        ]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.update",
-      "subject": "api::app-role.app-role",
-      "properties": {
-        "fields": [
-          "role",
-          "app_users",
-          "permissions"
-        ]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.create",
-      "subject": "api::app-university.app-university",
-      "properties": {
-        "fields": [
-          "university",
-          "users"
-        ]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.delete",
-      "subject": "api::app-university.app-university",
-      "properties": {},
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.publish",
-      "subject": "api::app-university.app-university",
-      "properties": {},
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.read",
-      "subject": "api::app-university.app-university",
-      "properties": {
-        "fields": [
-          "university",
-          "users"
-        ]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.update",
-      "subject": "api::app-university.app-university",
-      "properties": {
-        "fields": [
-          "university",
-          "users"
-        ]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.create",
-      "subject": "api::app-user.app-user",
-      "properties": {
-        "fields": [
-          "username",
-          "firstName",
-          "lastName",
-          "middleName",
-          "app_role",
-          "group",
-          "university",
-          "password"
-        ]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.delete",
-      "subject": "api::app-user.app-user",
-      "properties": {},
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.read",
-      "subject": "api::app-user.app-user",
-      "properties": {
-        "fields": [
-          "username",
-          "firstName",
-          "lastName",
-          "middleName",
-          "app_role",
-          "group",
-          "university",
-          "password"
-        ]
-      },
-      "conditions": []
-    },
-    {
-      "action": "plugin::content-manager.explorer.update",
-      "subject": "api::app-user.app-user",
-      "properties": {
-        "fields": [
-          "username",
-          "firstName",
-          "lastName",
-          "middleName",
-          "app_role",
-          "group",
-          "university",
-          "password"
+          "title",
+          "semanticTitle",
+          "school",
+          "students"
         ]
       },
       "conditions": []
@@ -198,10 +54,11 @@
       "properties": {
         "fields": [
           "name",
-          "group",
           "from",
           "to",
-          "teacher"
+          "group",
+          "professor",
+          "subgroup"
         ]
       },
       "conditions": []
@@ -213,21 +70,16 @@
       "conditions": []
     },
     {
-      "action": "plugin::content-manager.explorer.publish",
-      "subject": "api::lesson.lesson",
-      "properties": {},
-      "conditions": []
-    },
-    {
       "action": "plugin::content-manager.explorer.read",
       "subject": "api::lesson.lesson",
       "properties": {
         "fields": [
           "name",
-          "group",
           "from",
           "to",
-          "teacher"
+          "group",
+          "professor",
+          "subgroup"
         ]
       },
       "conditions": []
@@ -238,10 +90,47 @@
       "properties": {
         "fields": [
           "name",
-          "group",
           "from",
           "to",
-          "teacher"
+          "group",
+          "professor",
+          "subgroup"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::school.school",
+      "properties": {
+        "fields": [
+          "title"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::school.school",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::school.school",
+      "properties": {
+        "fields": [
+          "title"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::school.school",
+      "properties": {
+        "fields": [
+          "title"
         ]
       },
       "conditions": []
@@ -409,7 +298,13 @@
           "confirmationToken",
           "confirmed",
           "blocked",
-          "role"
+          "role",
+          "firstName",
+          "lastName",
+          "veryLastName",
+          "school",
+          "group",
+          "subgroup"
         ]
       },
       "conditions": []
@@ -433,7 +328,13 @@
           "confirmationToken",
           "confirmed",
           "blocked",
-          "role"
+          "role",
+          "firstName",
+          "lastName",
+          "veryLastName",
+          "school",
+          "group",
+          "subgroup"
         ]
       },
       "conditions": []
@@ -451,7 +352,13 @@
           "confirmationToken",
           "confirmed",
           "blocked",
-          "role"
+          "role",
+          "firstName",
+          "lastName",
+          "veryLastName",
+          "school",
+          "group",
+          "subgroup"
         ]
       },
       "conditions": []

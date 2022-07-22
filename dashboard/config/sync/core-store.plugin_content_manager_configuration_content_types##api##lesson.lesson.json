@@ -34,21 +34,6 @@
           "sortable": true
         }
       },
-      "group": {
-        "edit": {
-          "label": "group",
-          "description": "",
-          "placeholder": "",
-          "visible": true,
-          "editable": true,
-          "mainField": "name"
-        },
-        "list": {
-          "label": "group",
-          "searchable": true,
-          "sortable": true
-        }
-      },
       "from": {
         "edit": {
           "label": "from",
@@ -77,9 +62,24 @@
           "sortable": true
         }
       },
-      "teacher": {
+      "group": {
         "edit": {
-          "label": "teacher",
+          "label": "group",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "title"
+        },
+        "list": {
+          "label": "group",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "professor": {
+        "edit": {
+          "label": "professor",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -87,7 +87,21 @@
           "mainField": "username"
         },
         "list": {
-          "label": "teacher",
+          "label": "professor",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "subgroup": {
+        "edit": {
+          "label": "subgroup",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "subgroup",
           "searchable": true,
           "sortable": true
         }
@@ -122,6 +136,13 @@
       }
     },
     "layouts": {
+      "list": [
+        "id",
+        "name",
+        "createdAt",
+        "from",
+        "to"
+      ],
       "edit": [
         [
           {
@@ -137,21 +158,16 @@
           {
             "name": "to",
             "size": 6
+          },
+          {
+            "name": "subgroup",
+            "size": 4
           }
         ]
       ],
       "editRelations": [
         "group",
-        "teacher"
-      ],
-      "list": [
-        "id",
-        "name",
-        "createdAt",
-        "group",
-        "from",
-        "to",
-        "teacher"
+        "professor"
       ]
     }
   },

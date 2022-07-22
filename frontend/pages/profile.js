@@ -2,21 +2,32 @@ import Head from 'next/head'
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
-import Link from 'next/link';
+import ls from "local-storage"
+import { useRouter } from 'next/router';
 
-export default function Profile(){
+export default function Profile() {
+    const router = useRouter()
+
+    const deauth = async () => {
+        ls("jwt", "")
+        router.push("/")
+    }
+
+    if (!ls("jwt")) {
+        router.push("/auth")
+        return "Redirecting..."
+    }
+
     return (
         <div>
             <Head>
                 <title>Студентто - Профиль</title>
-                <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Box sx={{backgroundColor: '#CCCC', width: '100%'}}>
-                <Stack spacing={2} direction={'row'} justifyContent={'right'} sx={ {p: 1 }}>
+
+            <Box sx={{ backgroundColor: '#CCCC', width: '100%' }}>
+                <Stack spacing={2} direction={'row'} justifyContent={'right'} sx={{ p: 1 }}>
                     <div>
-                        <Link href="/auth" passHref>
-                            <Button variant="contained">Выйти</Button>
-                        </Link>
+                        <Button variant="contained" onClick={deauth}>Выйти</Button>
                     </div>
                 </Stack>
             </Box>

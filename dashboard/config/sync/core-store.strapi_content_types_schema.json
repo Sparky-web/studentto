@@ -629,6 +629,288 @@
       "plugin": "admin",
       "globalId": "AdminApiToken"
     },
+    "api::group.group": {
+      "kind": "collectionType",
+      "collectionName": "groups",
+      "info": {
+        "singularName": "group",
+        "pluralName": "groups",
+        "displayName": "Groups",
+        "description": ""
+      },
+      "options": {
+        "draftAndPublish": false
+      },
+      "pluginOptions": {},
+      "attributes": {
+        "title": {
+          "type": "string"
+        },
+        "semanticTitle": {
+          "type": "string"
+        },
+        "school": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "api::school.school"
+        },
+        "students": {
+          "type": "relation",
+          "relation": "oneToMany",
+          "target": "plugin::users-permissions.user",
+          "mappedBy": "group"
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        },
+        "createdBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        },
+        "updatedBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        }
+      },
+      "__schema__": {
+        "collectionName": "groups",
+        "info": {
+          "singularName": "group",
+          "pluralName": "groups",
+          "displayName": "Groups",
+          "description": ""
+        },
+        "options": {
+          "draftAndPublish": false
+        },
+        "pluginOptions": {},
+        "attributes": {
+          "title": {
+            "type": "string"
+          },
+          "semanticTitle": {
+            "type": "string"
+          },
+          "school": {
+            "type": "relation",
+            "relation": "oneToOne",
+            "target": "api::school.school"
+          },
+          "students": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "plugin::users-permissions.user",
+            "mappedBy": "group"
+          }
+        },
+        "kind": "collectionType"
+      },
+      "modelType": "contentType",
+      "modelName": "group",
+      "connection": "default",
+      "uid": "api::group.group",
+      "apiName": "group",
+      "globalId": "Group",
+      "actions": {},
+      "lifecycles": {}
+    },
+    "api::lesson.lesson": {
+      "kind": "collectionType",
+      "collectionName": "lessons",
+      "info": {
+        "singularName": "lesson",
+        "pluralName": "lessons",
+        "displayName": "Lessons",
+        "description": ""
+      },
+      "options": {
+        "draftAndPublish": false
+      },
+      "pluginOptions": {},
+      "attributes": {
+        "name": {
+          "type": "string"
+        },
+        "from": {
+          "type": "datetime"
+        },
+        "to": {
+          "type": "datetime"
+        },
+        "group": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "api::group.group"
+        },
+        "professor": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "plugin::users-permissions.user"
+        },
+        "subgroup": {
+          "type": "integer"
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        },
+        "createdBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        },
+        "updatedBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        }
+      },
+      "__schema__": {
+        "collectionName": "lessons",
+        "info": {
+          "singularName": "lesson",
+          "pluralName": "lessons",
+          "displayName": "Lessons",
+          "description": ""
+        },
+        "options": {
+          "draftAndPublish": false
+        },
+        "pluginOptions": {},
+        "attributes": {
+          "name": {
+            "type": "string"
+          },
+          "from": {
+            "type": "datetime"
+          },
+          "to": {
+            "type": "datetime"
+          },
+          "group": {
+            "type": "relation",
+            "relation": "oneToOne",
+            "target": "api::group.group"
+          },
+          "professor": {
+            "type": "relation",
+            "relation": "oneToOne",
+            "target": "plugin::users-permissions.user"
+          },
+          "subgroup": {
+            "type": "integer"
+          }
+        },
+        "kind": "collectionType"
+      },
+      "modelType": "contentType",
+      "modelName": "lesson",
+      "connection": "default",
+      "uid": "api::lesson.lesson",
+      "apiName": "lesson",
+      "globalId": "Lesson",
+      "actions": {},
+      "lifecycles": {}
+    },
+    "api::school.school": {
+      "kind": "collectionType",
+      "collectionName": "schools",
+      "info": {
+        "singularName": "school",
+        "pluralName": "schools",
+        "displayName": "Schools",
+        "description": ""
+      },
+      "options": {
+        "draftAndPublish": false
+      },
+      "pluginOptions": {},
+      "attributes": {
+        "title": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        },
+        "createdBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        },
+        "updatedBy": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "admin::user",
+          "configurable": false,
+          "writable": false,
+          "visible": false,
+          "useJoinTable": false,
+          "private": true
+        }
+      },
+      "__schema__": {
+        "collectionName": "schools",
+        "info": {
+          "singularName": "school",
+          "pluralName": "schools",
+          "displayName": "Schools",
+          "description": ""
+        },
+        "options": {
+          "draftAndPublish": false
+        },
+        "pluginOptions": {},
+        "attributes": {
+          "title": {
+            "type": "string"
+          }
+        },
+        "kind": "collectionType"
+      },
+      "modelType": "contentType",
+      "modelName": "school",
+      "connection": "default",
+      "uid": "api::school.school",
+      "apiName": "school",
+      "globalId": "School",
+      "actions": {},
+      "lifecycles": {}
+    },
     "plugin::upload.file": {
       "collectionName": "files",
       "info": {
@@ -1232,6 +1514,29 @@
           "inversedBy": "users",
           "configurable": false
         },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "veryLastName": {
+          "type": "string"
+        },
+        "school": {
+          "type": "relation",
+          "relation": "oneToOne",
+          "target": "api::school.school"
+        },
+        "group": {
+          "type": "relation",
+          "relation": "manyToOne",
+          "target": "api::group.group",
+          "inversedBy": "students"
+        },
+        "subgroup": {
+          "type": "integer"
+        },
         "createdAt": {
           "type": "datetime"
         },
@@ -1273,6 +1578,7 @@
         }
       },
       "kind": "collectionType",
+      "__filename__": "schema.json",
       "__schema__": {
         "collectionName": "up_users",
         "info": {
@@ -1336,6 +1642,29 @@
             "target": "plugin::users-permissions.role",
             "inversedBy": "users",
             "configurable": false
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "veryLastName": {
+            "type": "string"
+          },
+          "school": {
+            "type": "relation",
+            "relation": "oneToOne",
+            "target": "api::school.school"
+          },
+          "group": {
+            "type": "relation",
+            "relation": "manyToOne",
+            "target": "api::group.group",
+            "inversedBy": "students"
+          },
+          "subgroup": {
+            "type": "integer"
           }
         },
         "kind": "collectionType"
@@ -1346,518 +1675,6 @@
       "uid": "plugin::users-permissions.user",
       "plugin": "users-permissions",
       "globalId": "UsersPermissionsUser"
-    },
-    "api::app-group.app-group": {
-      "kind": "collectionType",
-      "collectionName": "app_groups",
-      "info": {
-        "singularName": "app-group",
-        "pluralName": "app-groups",
-        "displayName": "App-groups",
-        "description": ""
-      },
-      "options": {
-        "draftAndPublish": true
-      },
-      "pluginOptions": {},
-      "attributes": {
-        "name": {
-          "type": "string"
-        },
-        "app_users": {
-          "type": "relation",
-          "relation": "oneToMany",
-          "target": "api::app-user.app-user",
-          "mappedBy": "group"
-        },
-        "createdAt": {
-          "type": "datetime"
-        },
-        "updatedAt": {
-          "type": "datetime"
-        },
-        "publishedAt": {
-          "type": "datetime",
-          "configurable": false,
-          "writable": true,
-          "visible": false
-        },
-        "createdBy": {
-          "type": "relation",
-          "relation": "oneToOne",
-          "target": "admin::user",
-          "configurable": false,
-          "writable": false,
-          "visible": false,
-          "useJoinTable": false,
-          "private": true
-        },
-        "updatedBy": {
-          "type": "relation",
-          "relation": "oneToOne",
-          "target": "admin::user",
-          "configurable": false,
-          "writable": false,
-          "visible": false,
-          "useJoinTable": false,
-          "private": true
-        }
-      },
-      "__schema__": {
-        "collectionName": "app_groups",
-        "info": {
-          "singularName": "app-group",
-          "pluralName": "app-groups",
-          "displayName": "App-groups",
-          "description": ""
-        },
-        "options": {
-          "draftAndPublish": true
-        },
-        "pluginOptions": {},
-        "attributes": {
-          "name": {
-            "type": "string"
-          },
-          "app_users": {
-            "type": "relation",
-            "relation": "oneToMany",
-            "target": "api::app-user.app-user",
-            "mappedBy": "group"
-          }
-        },
-        "kind": "collectionType"
-      },
-      "modelType": "contentType",
-      "modelName": "app-group",
-      "connection": "default",
-      "uid": "api::app-group.app-group",
-      "apiName": "app-group",
-      "globalId": "AppGroup",
-      "actions": {},
-      "lifecycles": {}
-    },
-    "api::app-role.app-role": {
-      "kind": "collectionType",
-      "collectionName": "app_roles",
-      "info": {
-        "singularName": "app-role",
-        "pluralName": "app-roles",
-        "displayName": "app-roles",
-        "description": ""
-      },
-      "options": {
-        "draftAndPublish": false
-      },
-      "pluginOptions": {},
-      "attributes": {
-        "role": {
-          "type": "string"
-        },
-        "app_users": {
-          "type": "relation",
-          "relation": "oneToMany",
-          "target": "api::app-user.app-user",
-          "mappedBy": "app_role"
-        },
-        "permissions": {
-          "type": "json"
-        },
-        "createdAt": {
-          "type": "datetime"
-        },
-        "updatedAt": {
-          "type": "datetime"
-        },
-        "createdBy": {
-          "type": "relation",
-          "relation": "oneToOne",
-          "target": "admin::user",
-          "configurable": false,
-          "writable": false,
-          "visible": false,
-          "useJoinTable": false,
-          "private": true
-        },
-        "updatedBy": {
-          "type": "relation",
-          "relation": "oneToOne",
-          "target": "admin::user",
-          "configurable": false,
-          "writable": false,
-          "visible": false,
-          "useJoinTable": false,
-          "private": true
-        }
-      },
-      "__schema__": {
-        "collectionName": "app_roles",
-        "info": {
-          "singularName": "app-role",
-          "pluralName": "app-roles",
-          "displayName": "app-roles",
-          "description": ""
-        },
-        "options": {
-          "draftAndPublish": false
-        },
-        "pluginOptions": {},
-        "attributes": {
-          "role": {
-            "type": "string"
-          },
-          "app_users": {
-            "type": "relation",
-            "relation": "oneToMany",
-            "target": "api::app-user.app-user",
-            "mappedBy": "app_role"
-          },
-          "permissions": {
-            "type": "json"
-          }
-        },
-        "kind": "collectionType"
-      },
-      "modelType": "contentType",
-      "modelName": "app-role",
-      "connection": "default",
-      "uid": "api::app-role.app-role",
-      "apiName": "app-role",
-      "globalId": "AppRole",
-      "actions": {},
-      "lifecycles": {}
-    },
-    "api::app-university.app-university": {
-      "kind": "collectionType",
-      "collectionName": "app_universities",
-      "info": {
-        "singularName": "app-university",
-        "pluralName": "app-universities",
-        "displayName": "App-universities",
-        "description": ""
-      },
-      "options": {
-        "draftAndPublish": true
-      },
-      "pluginOptions": {},
-      "attributes": {
-        "university": {
-          "type": "string"
-        },
-        "users": {
-          "type": "relation",
-          "relation": "oneToMany",
-          "target": "api::app-user.app-user",
-          "mappedBy": "university"
-        },
-        "createdAt": {
-          "type": "datetime"
-        },
-        "updatedAt": {
-          "type": "datetime"
-        },
-        "publishedAt": {
-          "type": "datetime",
-          "configurable": false,
-          "writable": true,
-          "visible": false
-        },
-        "createdBy": {
-          "type": "relation",
-          "relation": "oneToOne",
-          "target": "admin::user",
-          "configurable": false,
-          "writable": false,
-          "visible": false,
-          "useJoinTable": false,
-          "private": true
-        },
-        "updatedBy": {
-          "type": "relation",
-          "relation": "oneToOne",
-          "target": "admin::user",
-          "configurable": false,
-          "writable": false,
-          "visible": false,
-          "useJoinTable": false,
-          "private": true
-        }
-      },
-      "__schema__": {
-        "collectionName": "app_universities",
-        "info": {
-          "singularName": "app-university",
-          "pluralName": "app-universities",
-          "displayName": "App-universities",
-          "description": ""
-        },
-        "options": {
-          "draftAndPublish": true
-        },
-        "pluginOptions": {},
-        "attributes": {
-          "university": {
-            "type": "string"
-          },
-          "users": {
-            "type": "relation",
-            "relation": "oneToMany",
-            "target": "api::app-user.app-user",
-            "mappedBy": "university"
-          }
-        },
-        "kind": "collectionType"
-      },
-      "modelType": "contentType",
-      "modelName": "app-university",
-      "connection": "default",
-      "uid": "api::app-university.app-university",
-      "apiName": "app-university",
-      "globalId": "AppUniversity",
-      "actions": {},
-      "lifecycles": {}
-    },
-    "api::app-user.app-user": {
-      "kind": "collectionType",
-      "collectionName": "app_users",
-      "info": {
-        "singularName": "app-user",
-        "pluralName": "app-users",
-        "displayName": "app-users",
-        "description": ""
-      },
-      "options": {
-        "draftAndPublish": false
-      },
-      "pluginOptions": {},
-      "attributes": {
-        "username": {
-          "type": "string"
-        },
-        "firstName": {
-          "type": "string"
-        },
-        "lastName": {
-          "type": "string"
-        },
-        "middleName": {
-          "type": "string"
-        },
-        "app_role": {
-          "type": "relation",
-          "relation": "manyToOne",
-          "target": "api::app-role.app-role",
-          "inversedBy": "app_users"
-        },
-        "group": {
-          "type": "relation",
-          "relation": "manyToOne",
-          "target": "api::app-group.app-group",
-          "inversedBy": "app_users"
-        },
-        "university": {
-          "type": "relation",
-          "relation": "manyToOne",
-          "target": "api::app-university.app-university",
-          "inversedBy": "users"
-        },
-        "password": {
-          "type": "string"
-        },
-        "createdAt": {
-          "type": "datetime"
-        },
-        "updatedAt": {
-          "type": "datetime"
-        },
-        "createdBy": {
-          "type": "relation",
-          "relation": "oneToOne",
-          "target": "admin::user",
-          "configurable": false,
-          "writable": false,
-          "visible": false,
-          "useJoinTable": false,
-          "private": true
-        },
-        "updatedBy": {
-          "type": "relation",
-          "relation": "oneToOne",
-          "target": "admin::user",
-          "configurable": false,
-          "writable": false,
-          "visible": false,
-          "useJoinTable": false,
-          "private": true
-        }
-      },
-      "__schema__": {
-        "collectionName": "app_users",
-        "info": {
-          "singularName": "app-user",
-          "pluralName": "app-users",
-          "displayName": "app-users",
-          "description": ""
-        },
-        "options": {
-          "draftAndPublish": false
-        },
-        "pluginOptions": {},
-        "attributes": {
-          "username": {
-            "type": "string"
-          },
-          "firstName": {
-            "type": "string"
-          },
-          "lastName": {
-            "type": "string"
-          },
-          "middleName": {
-            "type": "string"
-          },
-          "app_role": {
-            "type": "relation",
-            "relation": "manyToOne",
-            "target": "api::app-role.app-role",
-            "inversedBy": "app_users"
-          },
-          "group": {
-            "type": "relation",
-            "relation": "manyToOne",
-            "target": "api::app-group.app-group",
-            "inversedBy": "app_users"
-          },
-          "university": {
-            "type": "relation",
-            "relation": "manyToOne",
-            "target": "api::app-university.app-university",
-            "inversedBy": "users"
-          },
-          "password": {
-            "type": "string"
-          }
-        },
-        "kind": "collectionType"
-      },
-      "modelType": "contentType",
-      "modelName": "app-user",
-      "connection": "default",
-      "uid": "api::app-user.app-user",
-      "apiName": "app-user",
-      "globalId": "AppUser",
-      "actions": {},
-      "lifecycles": {}
-    },
-    "api::lesson.lesson": {
-      "kind": "collectionType",
-      "collectionName": "lessons",
-      "info": {
-        "singularName": "lesson",
-        "pluralName": "lessons",
-        "displayName": "lessons",
-        "description": ""
-      },
-      "options": {
-        "draftAndPublish": true
-      },
-      "pluginOptions": {},
-      "attributes": {
-        "name": {
-          "type": "string"
-        },
-        "group": {
-          "type": "relation",
-          "relation": "oneToOne",
-          "target": "api::app-group.app-group"
-        },
-        "from": {
-          "type": "datetime"
-        },
-        "to": {
-          "type": "datetime"
-        },
-        "teacher": {
-          "type": "relation",
-          "relation": "oneToOne",
-          "target": "api::app-user.app-user"
-        },
-        "createdAt": {
-          "type": "datetime"
-        },
-        "updatedAt": {
-          "type": "datetime"
-        },
-        "publishedAt": {
-          "type": "datetime",
-          "configurable": false,
-          "writable": true,
-          "visible": false
-        },
-        "createdBy": {
-          "type": "relation",
-          "relation": "oneToOne",
-          "target": "admin::user",
-          "configurable": false,
-          "writable": false,
-          "visible": false,
-          "useJoinTable": false,
-          "private": true
-        },
-        "updatedBy": {
-          "type": "relation",
-          "relation": "oneToOne",
-          "target": "admin::user",
-          "configurable": false,
-          "writable": false,
-          "visible": false,
-          "useJoinTable": false,
-          "private": true
-        }
-      },
-      "__schema__": {
-        "collectionName": "lessons",
-        "info": {
-          "singularName": "lesson",
-          "pluralName": "lessons",
-          "displayName": "lessons",
-          "description": ""
-        },
-        "options": {
-          "draftAndPublish": true
-        },
-        "pluginOptions": {},
-        "attributes": {
-          "name": {
-            "type": "string"
-          },
-          "group": {
-            "type": "relation",
-            "relation": "oneToOne",
-            "target": "api::app-group.app-group"
-          },
-          "from": {
-            "type": "datetime"
-          },
-          "to": {
-            "type": "datetime"
-          },
-          "teacher": {
-            "type": "relation",
-            "relation": "oneToOne",
-            "target": "api::app-user.app-user"
-          }
-        },
-        "kind": "collectionType"
-      },
-      "modelType": "contentType",
-      "modelName": "lesson",
-      "connection": "default",
-      "uid": "api::lesson.lesson",
-      "apiName": "lesson",
-      "globalId": "Lesson",
-      "actions": {},
-      "lifecycles": {}
     }
   },
   "type": "object",

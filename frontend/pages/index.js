@@ -141,6 +141,7 @@ export default function Home() {
                     </Grid>
                 </Box>
             </Modal>
+            
             <ButtonBar value={0}/>
         </div>
     )

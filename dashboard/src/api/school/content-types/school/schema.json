@@ -4,10 +4,11 @@
   "info": {
     "singularName": "school",
     "pluralName": "schools",
-    "displayName": "Schools"
+    "displayName": "Schools",
+    "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
