@@ -4,6 +4,8 @@ import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import ls from "local-storage"
 import { useRouter } from 'next/router';
+import {CircularProgress} from "@mui/material";
+import Grid from "@mui/material/Grid";
 
 export default function Profile() {
     const router = useRouter()
@@ -15,7 +17,18 @@ export default function Profile() {
 
     if (!ls("jwt")) {
         router.push("/auth")
-        return "Redirecting..."
+        return (
+            <Grid
+                container
+                direction="row"
+                alignItems="center"
+                justifyContent="center"
+                width="100%"
+                height="100vh"
+            >
+                <CircularProgress />
+            </Grid>
+        )
     }
 
     return (
