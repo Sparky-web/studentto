@@ -1,4 +1,3 @@
-import { Error } from "@mui/icons-material";
 import _axios from "axios";
 import ls from "local-storage"
 import router from "next/router"
@@ -15,6 +14,7 @@ axios.interceptors.request.use(config => {
 
 axios.interceptors.response.use(res => res, error => {
     console.error(error)
+
     const status = error.response.status
     if (status === "401") {
         router.push("/auth")
@@ -39,6 +39,7 @@ async function get(type, options) {
     return Array.isArray(data) ? data.map(e => ({ id: e.id, ...e.attributes })) : { id: data.id, ...data.attributes }
 }
 
+
 async function create(type, data, options) {
     const { data: { data: res } } = await axios.post(`/${type}`, { data }, options)
     return { id: res.id, ...res.attributes }
@@ -49,7 +50,7 @@ async function update(type, data, options) {
     return { id: res.id, ...res.attributes }
 }
 
-const strapi = {get, create, update, auth}
-export default strapi 
+const strapi = { get, create, update, auth }
+export default strapi
 
 

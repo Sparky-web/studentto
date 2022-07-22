@@ -21,9 +21,9 @@
     "to": {
       "type": "datetime"
     },
-    "group": {
+    "groups": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::group.group"
     },
     "professor": {
