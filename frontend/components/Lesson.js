@@ -1,10 +1,14 @@
 import {Avatar, Paper, ListItem, ListItemAvatar, ListItemButton, ListItemText, Typography} from "@mui/material";
+import { useBoolean } from 'usehooks-ts'
+import LessonModal from "./LessonModal";
 
 export default function Lesson ( props ) {
-    const {lesson, setModalData} = props
+    const {lesson} = props
+    const {value: isOpen, setTrue: open, setFalse: close} = useBoolean(false)
+
     return (
         <Paper key={lesson.id}>
-            <ListItemButton onClick={ () => setModalData(lesson)}>
+            <ListItemButton onClick={open}>
                 <ListItem>
                     <ListItemAvatar>
                         <Avatar>{lesson.id + 1}</Avatar>
@@ -20,6 +24,7 @@ export default function Lesson ( props ) {
                     ></ListItemText>
                 </ListItem>
             </ListItemButton>
+            <LessonModal lesson={lesson} isOpen={isOpen} close={close} />
         </Paper>
     )
 }

@@ -1,4 +1,4 @@
-import { Button, Stack, Typography } from "@mui/material";
+import { Button, Stack, Typography, Grid } from "@mui/material";
 import { Container } from "@mui/system";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
@@ -14,7 +14,7 @@ export default function Index() {
 
     return (
         <Container>
-            <Grid
+            <Stack
                 alignItems="center"
                 justifyContent="center"
                 height="100vh"
@@ -23,7 +23,7 @@ export default function Index() {
             >
                 <AuthForm />
                 <Button onClick={() => router.push("/students")}>Я просто посмотреть расписание</Button>
-            </Grid>
+            </Stack>
         </Container>
     )
 }

@@ -29,7 +29,7 @@ const auth = async (identifier, password) => {
         identifier,
         password
     })
-
+     
     ls("jwt", data.jwt)
     return true
 }
