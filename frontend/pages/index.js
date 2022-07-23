@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import { Button, Stack, Typography, Grid } from "@mui/material";
-=======
-import { Button } from "@mui/material";
->>>>>>> bfe045147d2f1ee2e0bf12534af1824d8758c5e0
 import { Container } from "@mui/system";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
