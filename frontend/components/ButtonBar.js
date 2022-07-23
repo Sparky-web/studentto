@@ -13,8 +13,8 @@ export default function ButtonBar( props ) {
     return (
         <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
             <BottomNavigation showLabels value={value}>
-                <BottomNavigationAction label="Расписание" onClick={() => onLink("/")} icon={<Analytics />} />
-                <BottomNavigationAction label="Профиль" onClick={() => onLink("/profile")} icon={<AccountBox />} />
+                <BottomNavigationAction label="Расписание" onClick={() => onLink("/students")} icon={<Analytics />} />
+                <BottomNavigationAction label="Профиль" onClick={() => onLink("/students/profile")} icon={<AccountBox />} />
             </BottomNavigation>
         </Paper>
     )
