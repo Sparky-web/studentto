@@ -9,26 +9,11 @@ import Grid from "@mui/material/Grid";
 
 export default function Profile() {
     const router = useRouter()
+    console.log("hello", !!ls("jwt"))
 
     const deauth = async () => {
-        ls("jwt", "")
+        ls("jwt", '')
         router.push("/")
-    }
-
-    if (!ls("jwt")) {
-        router.push("/students/auth")
-        return (
-            <Grid
-                container
-                direction="row"
-                alignItems="center"
-                justifyContent="center"
-                width="100%"
-                height="100vh"
-            >
-                <CircularProgress />
-            </Grid>
-        )
     }
 
     return (

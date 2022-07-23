@@ -44,9 +44,9 @@ export default function AuthForm() {
 
     return (
         <form onSubmit={submitLogin}>
-            <Stack spacing={2} justifyContent={'center'} sx={{ width: "400px" }}>
-                <TextField error={!!error.login} value={form.login} name='login' label="Логин" helperText={error.login} variant="outlined" type='text' className='login' onChange={handleFormChange} />
-                <TextField error={!!error.password} value={form.password} name='password' label="Пароль" helperText={error.password} variant="outlined" type={hide ? 'password' : 'text'} className='password' onChange={handleFormChange} />
+            <Stack spacing={2} justifyContent={'center'} sx={{width: "calc(100vw - 32px)", maxWidth: "400px"}}>
+                <TextField fullWidth={true} error={!!error.login} value={form.login} name='login' label="Логин" helperText={error.login} variant="outlined" type='text' className='login' onChange={handleFormChange} />
+                <TextField fullWidth={true} error={!!error.password} value={form.password} name='password' label="Пароль" helperText={error.password} variant="outlined" type={hide ? 'password' : 'text'} className='password' onChange={handleFormChange} />
                 <FormControlLabel control={<Checkbox checked={!hide} onClick={hidePassword} size='small' />} label="Показать пароль" />
 
                 <Button variant="contained" type={'submit'}>Далее</Button>
