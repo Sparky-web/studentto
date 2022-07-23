@@ -11,8 +11,6 @@ import {DateTime} from "luxon";
 export default function Home() {
     const time = DateTime.now().setZone("system").setLocale("ru");
     const [data, setData] = useState({
-        date: '20.11.2022',
-        week: time.toFormat("EEEE"),
         lessons: [
             {
                 id: 0,
@@ -24,6 +22,8 @@ export default function Home() {
                     lastName: 'Еремеев',
                     veryLastName: 'Леонидович'
                 },
+                date: '20.11.2022',
+                week: time.toFormat("EEEE"),
                 comment: ""
             }, {
                 id: 1,
@@ -35,6 +35,8 @@ export default function Home() {
                     lastName: 'Соколова',
                     veryLastName: 'Георгиевная'
                 },
+                date: '20.11.2022',
+                week: time.toFormat("EEEE"),
                 comment: ""
             }, {
                 id: 2,
@@ -46,6 +48,8 @@ export default function Home() {
                     lastName: 'Соколова',
                     veryLastName: 'Георгиевная'
                 },
+                date: '20.11.2022',
+                week: time.toFormat("EEEE"),
                 comment: ""
             }, {
                 id: 3,
@@ -57,6 +61,8 @@ export default function Home() {
                     lastName: 'Зырянов',
                     veryLastName: 'Владимирович'
                 },
+                date: '20.11.2022',
+                week: time.toFormat("EEEE"),
                 comment: ""
             }, {
                 id: 4,
@@ -68,6 +74,8 @@ export default function Home() {
                     lastName: 'Зырянов',
                     veryLastName: 'Владимирович'
                 },
+                date: '20.11.2022',
+                week: time.toFormat("EEEE"),
                 comment: ""
             }, {
                 id: 5,
@@ -79,6 +87,8 @@ export default function Home() {
                     lastName: 'Кравцов',
                     veryLastName: 'Сергеевич'
                 },
+                date: '20.11.2022',
+                week: time.toFormat("EEEE"),
                 comment: ""
             }, {
                 id: 6,
@@ -90,6 +100,8 @@ export default function Home() {
                     lastName: 'Кравцов',
                     veryLastName: 'Сергеевич'
                 },
+                date: '20.11.2022',
+                week: time.toFormat("EEEE"),
                 comment: ""
             }
         ]

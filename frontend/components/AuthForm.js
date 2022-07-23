@@ -1,13 +1,5 @@
 import { useReducer, useState } from "react";
-import Button from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
-import TextField from '@mui/material/TextField';
-import Container from "@mui/material/Container";
-import Grid from "@mui/material/Grid";
-import Checkbox from '@mui/material/Checkbox';
-import { FormControlLabel } from "@mui/material";
-import Head from "next/head";
-import ButtonBar from "./ButtonBar";
+import {Button, Stack, TextField, Checkbox, FormControlLabel} from '@mui/material';
 import strapi from "../modules/strapi";
 import { useRouter } from "next/router";
 
@@ -42,7 +34,7 @@ export default function AuthForm() {
             setError(error);
 
             await strapi.auth(form.login, form.password)
-            router.push("/profile")
+            router.push("/students/profile")
         } catch (e) {
             console.error(e)
             alert("Ошибка")

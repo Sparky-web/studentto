@@ -1,14 +1,14 @@
 import Grid from "@mui/material/Grid";
 import Head from "next/head";
-import ButtonBar from "../components/ButtonBar";
-import AuthForm from "../components/AuthForm"
+import ButtonBar from "../../components/ButtonBar";
+import AuthForm from "../../components/AuthForm"
 
 export default function Auth() {
     return (
         <div>
             <Head>
                 <title>Студентто - Авторизация</title>
-                <link rel="icon" href="/favicon.ico" />
+                <link rel="icon" href="/frontend/public/favicon.ico" />
             </Head>
             <Grid
                 container

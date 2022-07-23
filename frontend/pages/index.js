@@ -3,25 +3,29 @@ import { Container } from "@mui/system";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import AuthForm from "../components/AuthForm";
-import Grid from "@mui/material/Grid";
+import ls from "local-storage";
 
 
 export default function Index() {
     const router = useRouter()
+    const single = () => {
+        router.push("/students/profile")
+    }
 
-    useEffect(() => {
-    
-    }, [])
-
+    if (ls("jwt")) {
+        single()
+        return (<Container>good</Container>)
+    }
     return (
         <Container>
             <Stack
+                spacing={2}
                 alignItems="center"
                 justifyContent="center"
                 height="100vh"
                 width="100%"
             >
-                <AuthForm />
+                <AuthForm/>
                 <Button onClick={() => router.push("/students")}>Я просто посмотреть расписание</Button>
             </Stack>
         </Container>

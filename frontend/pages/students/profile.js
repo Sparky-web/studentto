@@ -16,7 +16,7 @@ export default function Profile() {
     }
 
     if (!ls("jwt")) {
-        router.push("/auth")
+        router.push("/students/auth")
         return (
             <Grid
                 container
