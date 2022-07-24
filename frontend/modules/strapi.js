@@ -1,10 +1,9 @@
 import _axios from "axios";
-import ls from "local-storage"
-import router from "next/router"
 import Cookies from "js-cookie"
+import qs from "querystring"
 
 const axios = _axios.create({
-    baseURL: process.env.NEXT_PUBLIC_STRAPI_URL,
+    baseURL: process.env.NEXT_PUBLIC_STRAPI_URL + "/api",
 })
 
 axios.interceptors.request.use(config => {
@@ -36,7 +35,7 @@ const auth = async (identifier, password) => {
 }
 
 async function get(type, options) {
-    const { data: { data } } = await axios.get(`/${type}?${qs.stringify({ pagination: { limit: 100 }, ...filters })}`, { ...options })
+    const { data: { data } } = await axios.get(`/${type}?${qs.stringify({ pagination: { limit: 100 }, ...options })}`)
     return Array.isArray(data) ? data.map(e => ({ id: e.id, ...e.attributes })) : { id: data.id, ...data.attributes }
 }
 
