@@ -1,6 +1,6 @@
 import '../styles/globals.css'
 import { AppProvider } from '../context/AppContext';
-import { createTheme, ThemeProvider } from '@mui/system';
+import { ThemeProvider } from '@mui/system';
 import { theme } from "../modules/theme"
 
 function MyApp({ Component, pageProps }) {

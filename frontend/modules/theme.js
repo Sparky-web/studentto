@@ -2,25 +2,24 @@ import { createTheme } from "@mui/material";
 
 export const theme = createTheme({
   palette: {
-    type: 'light',
+    type: 'dark',
     primary: {
       main: '#2897FF',
-      light: '#6FBAFF',
-      dark: '#006FFD',
-      contrastText: '#f8f9fe',
+      light: '#B4DBFF',
+      dark: '#B4DBFF',
     },
     secondary: {
       main: '#F03A47',
     },
     background: {
-      default: '#ffffff',
-      paper: '#f8f9fe',
+      default: '#1F2024',
+      paper: '#2F3036',
     },
     text: {
-      primary: '#1F2024',
-      secondary: '#2F3036',
-      disabled: '#494A50',
-      hint: '#71727A',
+      primary: '#F8F9FE',
+      secondary: '#E8E9F1',
+      disabled: '#D4D6DD',
+      hint: '#C5C6CC',
     },
     error: {
       main: '#FF616D',
@@ -91,6 +90,19 @@ export const theme = createTheme({
     overline: {
       fontSize: 12,
       fontWeight: 600,
+    },
+  },
+  overrides: {
+    MuiAppBar: {
+      colorInherit: {
+        backgroundColor: '#689f38',
+        color: '#fff',
+      },
+    },
+  },
+  props: {
+    MuiAppBar: {
+      color: 'default',
     },
   },
 })
