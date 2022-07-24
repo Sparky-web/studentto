@@ -1,10 +1,7 @@
 import { Button, Stack, Typography, Grid } from "@mui/material";
 import { Container } from "@mui/system";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
-import { useBoolean } from 'usehooks-ts'
 import AuthForm from "../components/AuthForm";
-import ls from "local-storage";
 
 
 export default function Index() {

@@ -1,13 +1,14 @@
 import _axios from "axios";
 import ls from "local-storage"
 import router from "next/router"
+import Cookies from "js-cookie"
 
 const axios = _axios.create({
     baseURL: process.env.NEXT_PUBLIC_STRAPI_URL,
 })
 
 axios.interceptors.request.use(config => {
-    const jwt = ls("jwt")
+    const jwt = Cookies.get("jwt")
     if (jwt) config.headers.Authorization = "Bearer " + jwt
     return config
 })
@@ -16,10 +17,10 @@ axios.interceptors.response.use(res => res, error => {
     console.error(error)
 
     const status = error.response.status
-    if (status === "401") {
-        router.push("/auth")
-        return
-    }
+    // if (status === "401") {
+    //     router.push("/auth")
+    //     return
+    // }
 
     throw error
 })
@@ -30,7 +31,7 @@ const auth = async (identifier, password) => {
         password
     })
      
-    ls("jwt", data.jwt)
+    Cookies.set("jwt", data.jwt)
     return true
 }
 

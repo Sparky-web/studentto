@@ -4,15 +4,13 @@ import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import ls from "local-storage"
 import { useRouter } from 'next/router';
-import {CircularProgress} from "@mui/material";
-import Grid from "@mui/material/Grid";
+import Cookies from 'js-cookie';
 
 export default function Profile() {
     const router = useRouter()
-    console.log("hello", !!ls("jwt"))
 
     const deauth = async () => {
-        ls("jwt", '')
+        Cookies.set("jwt", "")
         router.push("/")
     }
 

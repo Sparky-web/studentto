@@ -5,33 +5,50 @@ import { Grid } from "@mui/material";
 import { CircularProgress } from "@mui/material";
 import Router from 'next/router';
 import _ from "lodash"
-import ls from "local-storage"
+import Cookies from "js-cookie";
 
 export const AppContext = createContext({})
-
-const protectedRoutes = [
-    { route: "/students/profile", redirect: "/students/auth" }
-]
 
 export const AppProvider = (props) => {
     const router = useRouter()
     const [value, setValue] = useState({ user: "sosi" })
+    const [auth, setAuth] = useState(false)
     const { value: loading, setFalse: stopLoading, setTrue: startLoading } = useBoolean(false)
 
     useEffect(() => {
+        checkAuth(router.asPath)
+        
         Router.onRouteChangeStart = (url) => {
-            const foundRoute = protectedRoutes.find(({ route }) => url.match(new RegExp(route, "ig")))
-            if (foundRoute && !ls('jwt')) router.push(foundRoute.redirect)
-
+            setAuth(false)
             startLoading()
         }
 
-        Router.onRouteChangeComplete = (url) => stopLoading()
+        Router.onRouteChangeComplete = (url) => {
+            stopLoading()
+            checkAuth(url)
+        }
 
         Router.onRouteChangeError = (err, url) => stopLoading()
     }, [])
 
+    function checkAuth (url) {
+        const protectedRoutes = [
+            {from: "/students/profile", to: "/students/auth"},
+        ];
 
+        const path = url.split('?')[0];
+        const found = protectedRoutes.find(({from}) => path.match(new RegExp(from, "ig")))
+
+        if (!Cookies.get("jwt") && found) {
+            setAuth(false);
+            router.push({
+                pathname: found.to,
+                query: { returnUrl: router.asPath }
+            });
+        } else {
+            setAuth(true);
+        }
+    }
 
     if (loading) return (<Grid
         container
@@ -43,6 +60,8 @@ export const AppProvider = (props) => {
     >
         <CircularProgress />
     </Grid>)
+
+    if(!auth) return null
 
     return <AppContext.Provider value={value}>
         {props.children}
