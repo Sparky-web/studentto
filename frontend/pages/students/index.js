@@ -38,17 +38,14 @@ export default function Home() {
                 filters: {
                     group: 1,
                     from: {
-                        // начало недели
-                        $gt: (new Date()).toISOString(),
-                        // конец недели
-                        $lt: (new Date()).toISOString()
+                        $gt: (new Date()).toISOString()
+                        //$lt: (new Date()).toISOString()
                     }
                 }
             })
             setLessons(data)
             console.log(data)
         }
-
         init()
     }, [])
 
@@ -67,7 +64,7 @@ export default function Home() {
                 justifyContent="center"
                 paddingBottom={8}
             >
-                <Typography>{data.date}</Typography>
+                <Typography>{lessons?.date}</Typography>
                 <Box sx={{ width: '380px', height: '3px', backgroundColor: '#000000' }} />
 
                 <Stack sx={{ width: '100%', maxWidth: 380 }} spacing={1}>
