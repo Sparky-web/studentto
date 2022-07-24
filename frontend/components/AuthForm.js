@@ -1,5 +1,5 @@
 import { useReducer, useState } from "react";
-import { Button, Stack, TextField, Checkbox, FormControlLabel } from '@mui/material';
+import {Button, Stack, TextField, Checkbox, FormControlLabel, Divider} from '@mui/material';
 import strapi from "../modules/strapi";
 import { useRouter } from "next/router";
 

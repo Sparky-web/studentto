@@ -1,4 +1,4 @@
-import { Button, Stack, Typography, Grid } from "@mui/material";
+import {Button, Stack, Typography, Divider} from "@mui/material";
 import { Container } from "@mui/system";
 import { useRouter } from "next/router";
 import AuthForm from "../components/AuthForm";
@@ -48,6 +48,7 @@ export default function Index() {
                         <Typography variant="caption">Я только посмотреть расписание</Typography>
                     </Button>
                 </Stack>
+                <Divider sx={{marginTop: 1}}/>
             </Container>
         </div>
     )
