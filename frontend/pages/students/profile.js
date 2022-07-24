@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import ls from "local-storage"
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
+import ButtonBar from '../../components/ButtonBar';
 
 export default function Profile() {
     const router = useRouter()
@@ -27,6 +28,8 @@ export default function Profile() {
                     </div>
                 </Stack>
             </Box>
+
+            <ButtonBar value={1}/>
         </div>
     )
 }
