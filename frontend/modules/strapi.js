@@ -1,6 +1,6 @@
 import _axios from "axios";
 import Cookies from "js-cookie"
-import qs from "querystring"
+import {stringify} from "qs"
 
 const axios = _axios.create({
     baseURL: process.env.NEXT_PUBLIC_STRAPI_URL + "/api",
@@ -35,7 +35,7 @@ const auth = async (identifier, password) => {
 }
 
 async function get(type, options) {
-    const { data: { data } } = await axios.get(`/${type}?${qs.stringify({ pagination: { limit: 100 }, ...options })}`)
+    const { data: { data } } = await axios.get(`/${type}?${stringify({ pagination: { limit: 100 }, ...options })}`)
     return Array.isArray(data) ? data.map(e => ({ id: e.id, ...e.attributes })) : { id: data.id, ...data.attributes }
 }
 

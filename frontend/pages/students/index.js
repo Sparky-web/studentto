@@ -36,15 +36,11 @@ export default function Home() {
         async function init() {
             const data = await strapi.get("lessons", {
                 filters: {
-                    group: 1,
-                    from: {
-                        $gt: (new Date()).toISOString()
-                        //$lt: (new Date()).toISOString()
-                    }
-                }
+                    groups: 1,
+                },
+                populate: "*"
             })
             setLessons(data)
-            console.log(data)
         }
         init()
     }, [])
