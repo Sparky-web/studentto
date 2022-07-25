@@ -1,30 +1,40 @@
-import {Avatar, Paper, ListItem, ListItemAvatar, ListItemButton, ListItemText, Typography} from "@mui/material";
+import { Avatar, Paper, ListItem, ListItemAvatar, ListItemButton, ListItemText, Typography } from "@mui/material";
 import { useBoolean } from 'usehooks-ts'
 import LessonModal from "./LessonModal";
 
-export default function Lesson ( props ) {
-    const {lesson} = props
-    const {value: isOpen, setTrue: open, setFalse: close} = useBoolean(false)
+export default function Lesson(props) {
+    const { lesson } = props
+    const { value: isOpen, setTrue: open, setFalse: close } = useBoolean(false)
+
+    console.log(lesson)
 
     return (
-        <Paper key={lesson.id}>
+        <Paper elevation={0} variant="elevation">
             <ListItemButton onClick={open}>
-                <ListItem>
+                <ListItem alignItems="flex-start">
                     <ListItemAvatar>
-                        <Avatar>{lesson.id + 1}</Avatar>
+                        <Avatar>
+                            <Typography variant="button">1</Typography>
+                        </Avatar>
                     </ListItemAvatar>
                     <ListItemText
-                        primary={
-                            <div>
-                                <Typography style={{color: '#00bfff'}}>{lesson.name}</Typography>
-                                <Typography>{lesson.professor.lastName + ' ' + lesson.professor.firstName + ' ' + lesson.professor.veryLastName}</Typography>
-                            </div>
+                        primary="Summer BBQ"
+                        secondary={
+                            <>
+                                <Typography
+                                    sx={{ display: 'inline' }}
+                                    component="span"
+                                    variant="body2"
+                                    color="text.primary"
+                                >
+                                    to Scott, Alex, Jennifer
+                                </Typography>
+                                {" — Wish I could come, but I'm out of town this…"}
+                            </>
                         }
-                        secondary={lesson.start + ' - ' + lesson.end}
-                    ></ListItemText>
+                    />
                 </ListItem>
             </ListItemButton>
-            <LessonModal lesson={lesson} isOpen={isOpen} close={close} />
         </Paper>
     )
 }

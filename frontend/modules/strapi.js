@@ -39,7 +39,6 @@ async function get(type, options) {
     return Array.isArray(data) ? data.map(e => ({ id: e.id, ...e.attributes })) : { id: data.id, ...data.attributes }
 }
 
-
 async function create(type, data, options) {
     const { data: { data: res } } = await axios.post(`/${type}`, { data }, options)
     return { id: res.id, ...res.attributes }

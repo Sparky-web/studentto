@@ -11,6 +11,7 @@ import strapi from "../../modules/strapi"
 
 export default function Home() {
     const time = DateTime.now().setZone("system").setLocale("ru");
+
     // const [data, setData] = useState({
     //     lessons: [
     //         {
