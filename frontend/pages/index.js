@@ -1,55 +1,61 @@
-import {Button, Stack, Typography, Divider} from "@mui/material";
+import { Button, Stack, Typography, Divider, Box } from "@mui/material";
 import { Container } from "@mui/system";
 import { useRouter } from "next/router";
 import AuthForm from "../components/AuthForm";
 import Image from "next/image"
 import { useState, useEffect } from "react";
 import strapi from "../modules/strapi";
+import Highlight from "../components/Highlight";
+import { getBase64ImageUrl } from "../modules/images";
+import styles from "../styles/Index.module.css"
 
 const myLoader = ({ src, width, quality }) => {
     return `${process.env.NEXT_PUBLIC_STRAPI_URL}${src}?w=${width}&q=${quality || 75}`
 }
 
 
-export default function Index() {
+export default function Index({ image, imagePlaceholder }) {
     const router = useRouter()
-    const [image, setImage] = useState(null)
-
-    useEffect(() => {
-        async function f() {
-            const [urtk] = await strapi.get("schools", { populate: "*" })
-            setImage(urtk.image?.data?.attributes.url)
-        }
-        f()
-    }, [])
-
 
     return (
-        <div style={{height: "100vh"}}>
-            {image && <Image
-                loader={myLoader}
-                src={image}
-                height={80}
-                objectFit="fill"
-                width={"100%"}
-                layout="responsive"
-            />}
+        <div style={{ height: "100vh" }}>
+            <Box width={"100%"} height={"35vh"} position="relative" className={styles.image} >
+                {image && <Image
+                    loader={myLoader}
+                    blurDataURL={imagePlaceholder}
+                    placeholder="blur"
+                    src={image}
+                    layout="fill"
+                    objectFit="cover"
+                />}
+            </Box>
             <Container>
-                <Stack
-                marginTop={3}
-                    spacing={1}
-                    alignItems="center"
-                    justifyContent="center"
-                    width="100%"
-                >
-
-                    <AuthForm />
-                    <Button onClick={() => router.push("/students")}>
-                        <Typography variant="caption">Я только посмотреть расписание</Typography>
-                    </Button>
+                <Stack width="100%" alignItems={"center"} justifyContent="center" mt={5}>
+                    <Stack
+                        spacing={1}
+                        width="100%"
+                        maxWidth={"400px"}
+                    >
+                        <Typography variant="h1" mb={2} sx={{ color: "text.primary" }}>Привет! <br />Для продолжения <Highlight>войди в систему</Highlight></Typography>
+                        <AuthForm />
+                        <Button onClick={() => router.push("/students")}>
+                            <Typography variant="caption">Я только посмотреть расписание</Typography>
+                        </Button>
+                    </Stack>
                 </Stack>
-                <Divider sx={{marginTop: 1}}/>
+
+                {/* <Divider sx={{ marginTop: 1 }} /> */}
             </Container>
         </div>
     )
+}
+
+Index.getInitialProps = async ctx => {
+    const [urtk] = await strapi.get("schools", { populate: "*" })
+
+    const placeholder = await getBase64ImageUrl(myLoader({ src: urtk.image?.data?.attributes.formats.thumbnail.url }))
+    return {
+        image: urtk.image?.data?.attributes.url,
+        imagePlaceholder: placeholder
+    }
 }

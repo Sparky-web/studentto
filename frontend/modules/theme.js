@@ -19,6 +19,7 @@ export const theme = createTheme({
     text: {
       primary: '#1F2024',
       secondary: '#2F3036',
+      highlight: "#2897FF",
       disabled: '#494A50',
       hint: '#71727A',
     },
