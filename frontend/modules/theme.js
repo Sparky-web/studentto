@@ -8,6 +8,7 @@ export const theme = createTheme({
       light: '#6FBAFF',
       dark: '#006FFD',
       contrastText: '#f8f9fe',
+      lightest: '#EAF2FF'
     },
     secondary: {
       main: '#F03A47',
@@ -89,6 +90,7 @@ export const theme = createTheme({
       letterSpacing: "0.05em",
       fontSize: 10,
       fontWeight: 600,
+      textTransform: "uppercase"
     },
     overline: {
       fontSize: 12,
@@ -108,10 +110,32 @@ export const theme = createTheme({
         }
       },
     },
+    MuiButtonBase:{
+      variants: [
+        {
+          props: { variant: 'nofocus' },
+          style: {
+            textTransform: 'none',
+            border: '2px dashed',
+            color: '#fff',
+          }
+        }
+      ]
+    },
+    MuiListItemButton:{
+      styleOverrides: {
+        root: {
+          borderRadius: "12px"
+        }
+      }
+    },
     MuiPaper: {
       styleOverrides: {
         elevation0: {
           background: "none"
+        },
+        elevation1: {
+          background: "#EAF2FF"
         }
       }
     }

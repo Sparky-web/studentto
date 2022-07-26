@@ -15,7 +15,7 @@ axios.interceptors.request.use(config => {
 axios.interceptors.response.use(res => res, error => {
     console.error(error)
 
-    const status = error.response.status
+    //const status = error.response.status
     // if (status === "401") {
     //     router.push("/auth")
     //     return
