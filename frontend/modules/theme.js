@@ -110,22 +110,24 @@ export const theme = createTheme({
         }
       },
     },
-    MuiButtonBase:{
+    MuiButton: {
       variants: [
         {
-          props: { variant: 'nofocus' },
-          style: {
-            textTransform: 'none',
-            border: '2px dashed',
-            color: '#fff',
-          }
-        }
-      ]
+          props: { variant: 'link' },
+          style: ({ theme }) => ({
+            color: theme.palette.primary.main,
+            width: "fit-content",
+            padding: 0,
+            borderRadius: 0,
+            textTransform: "none"
+          })
+        },
+      ],
     },
-    MuiListItemButton:{
+    MuiListItemButton: {
       styleOverrides: {
         root: {
-          borderRadius: "12px"
+          borderRadius: "12px",
         }
       }
     },
@@ -135,7 +137,8 @@ export const theme = createTheme({
           background: "none"
         },
         elevation1: {
-          background: "#EAF2FF"
+          background: "#EAF2FF",
+          boxShadow: "none"
         }
       }
     }
