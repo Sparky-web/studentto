@@ -104,13 +104,10 @@ export const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          // borderRadius: "12px",
           padding: "14px 12px",
           boxShadow: "none",
         }
       },
-    },
-    MuiButton: {
       variants: [
         {
           props: { variant: 'link' },
@@ -137,7 +134,7 @@ export const theme = createTheme({
           background: "none"
         },
         elevation1: {
-          background: "#EAF2FF",
+          // background: theme.palette.background.paper,
           boxShadow: "none"
         }
       }

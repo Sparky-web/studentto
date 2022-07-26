@@ -18,8 +18,12 @@ export default function Lesson(props) {
     console.log(lesson)
 
     return (
-        <Paper elevation={isOpen ? 1 : 0} variant="elevation">
-            <ListItemButton onClick={toggle} sx={{ flexDirection: "column", alignItems: "start", cursor: "pointer" }}>
+        <Paper elevation={isOpen ? 1 : 0} variant="elevation" >
+            <ListItemButton onClick={toggle}
+                sx={{ flexDirection: "column", alignItems: "start", cursor: "pointer" }}
+                disableRipple
+                disableTouchRipple
+            >
                 <ListItem alignItems="center">
                     <ListItemAvatar>
                         <Avatar sx={{ backgroundColor: isOpen ? "white" : "primary.lightest" }}>
