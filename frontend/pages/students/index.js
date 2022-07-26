@@ -8,6 +8,7 @@ import Lesson from "../../components/Lesson.js"
 import ButtonBar from "../../components/ButtonBar"
 import { DateTime } from "luxon";
 import strapi from "../../modules/strapi"
+import { Container } from '@mui/system';
 
 export default function Home() {
     const time = DateTime.now().setZone("system").setLocale("ru");
@@ -54,21 +55,24 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <Grid
-                container
-                direction="column"
-                alignItems="center"
-                justifyContent="center"
-                paddingBottom={8}
-            >
-                <Typography>{lessons?.date}</Typography>
-                <Box sx={{ width: '380px', height: '3px', backgroundColor: '#000000' }} />
+            <Container>
+                <Typography variant="h4" textAlign={"center"} m={3}>
+                    Расписание: Ис-115
+                </Typography>
+                <Grid
+                    display={"flex"}
+                    direction="column"
+                    alignItems="center"
+                    justifyContent="center"
+                    paddingBottom={8}
+                >   
 
-                <Stack sx={{ width: '100%', maxWidth: 380 }} spacing={1}>
-                    {lessons && lessons.map(lesson => <Lesson lesson={lesson} key={lesson.id} />)}
-                    {!lessons && <LinearProgress />}
-                </Stack>
-            </Grid>
+                    <Stack sx={{ width: '100%', maxWidth: 480 }} spacing={1}>
+                        {lessons && lessons.map(lesson => <Lesson lesson={lesson} key={lesson.id} />)}
+                        {!lessons && <LinearProgress />}
+                    </Stack>
+                </Grid>
+            </Container>
 
             <ButtonBar value={0} />
         </div>

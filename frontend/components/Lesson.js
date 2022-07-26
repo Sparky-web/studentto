@@ -9,7 +9,8 @@ import {
     Chip, Stack, Divider, Link, Button, Collapse
 } from "@mui/material";
 import { useBoolean } from 'usehooks-ts'
-import { AttachFile, Room } from "@mui/icons-material";
+import { AttachFile, Person, Room } from "@mui/icons-material";
+import IconText from "./IconText";
 
 export default function Lesson(props) {
     const { lesson } = props
@@ -20,28 +21,25 @@ export default function Lesson(props) {
     return (
         <Paper elevation={isOpen ? 1 : 0} variant="elevation" >
             <ListItemButton onClick={toggle}
-                sx={{ flexDirection: "column", alignItems: "start", cursor: "pointer" }}
+                sx={{ flexDirection: "column", alignItems: "start", cursor: "pointer", p: 0 }}
                 disableRipple
                 disableTouchRipple
             >
                 <ListItem alignItems="center">
-                    <ListItemAvatar>
-                        <Avatar sx={{ backgroundColor: isOpen ? "white" : "primary.lightest" }}>
-                            <Typography color="primary" variant="button">1</Typography>
+                    <ListItemAvatar sx={{minWidth: "36px"}}>
+                        <Avatar sx={{ backgroundColor: "primary.lightest", borderRadius: "16px", width: "36px", height: "36px", mr: 2}}>
+                            <Typography color="primary" variant="actionL">1</Typography>
                         </Avatar>
                     </ListItemAvatar>
-                    <ListItemText primary="Математика" secondary={<>
-                        <Stack spacing={0.5} direction="row" alignItems="center" color="text.hint">
-                            <Room sx={{ fontSize: "small" }} />
-                            <Typography variant="body2">405 ауд. 1 этаж</Typography>
-                        </Stack>
-                        <Typography variant="body2" color="text.hint">Еремеев Алексей Леонидович</Typography>
-                    </>} />
-                    <Chip label={<Typography variant="button">11:30</Typography>} sx={{ backgroundColor: isOpen ? "primary.main" : "primary.lightest", color: isOpen ? "White" : "primary.main" }} />
+                    <ListItemText primary="Математика" secondary={<Stack spacing={0.5} mt={0.5}>
+                        <IconText icon={Room} variant="subtitle2">405 каб. 1 корпус</IconText>
+                        <IconText icon={Person} variant="subtitle2">Еремеев Алексей Леонидович</IconText>
+                    </Stack>} />
+                    <Chip label={<Typography variant="button">11:30</Typography>} sx={{ backgroundColor: false ? "primary.main" : "primary.lightest", color: false ? "white" : "primary.main" }} />
                 </ListItem>
             </ListItemButton>
             <Collapse in={isOpen}>
-                <Stack spacing={2} sx={{ width: "100%", pl: 3, pr: 3, pb: 3 }} >
+                <Stack spacing={2} sx={{ width: "100%", pl: 2, pr: 2, pb: 2 }} >
                     <Divider sx={{ width: "100%" }} />
 
                     <Stack spacing={1}>

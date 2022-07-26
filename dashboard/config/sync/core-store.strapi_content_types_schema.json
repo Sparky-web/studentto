@@ -752,9 +752,9 @@
         "to": {
           "type": "datetime"
         },
-        "group": {
+        "groups": {
           "type": "relation",
-          "relation": "oneToOne",
+          "relation": "oneToMany",
           "target": "api::group.group"
         },
         "professor": {
@@ -764,6 +764,16 @@
         },
         "subgroup": {
           "type": "integer"
+        },
+        "comments": {
+          "type": "component",
+          "repeatable": true,
+          "component": "main.comment"
+        },
+        "attachments": {
+          "type": "component",
+          "repeatable": true,
+          "component": "main.attachment"
         },
         "createdAt": {
           "type": "datetime"
@@ -814,9 +824,9 @@
           "to": {
             "type": "datetime"
           },
-          "group": {
+          "groups": {
             "type": "relation",
-            "relation": "oneToOne",
+            "relation": "oneToMany",
             "target": "api::group.group"
           },
           "professor": {
@@ -826,6 +836,16 @@
           },
           "subgroup": {
             "type": "integer"
+          },
+          "comments": {
+            "type": "component",
+            "repeatable": true,
+            "component": "main.comment"
+          },
+          "attachments": {
+            "type": "component",
+            "repeatable": true,
+            "component": "main.attachment"
           }
         },
         "kind": "collectionType"
@@ -855,6 +875,17 @@
       "attributes": {
         "title": {
           "type": "string"
+        },
+        "image": {
+          "type": "media",
+          "multiple": false,
+          "required": false,
+          "allowedTypes": [
+            "images",
+            "files",
+            "videos",
+            "audios"
+          ]
         },
         "createdAt": {
           "type": "datetime"
@@ -898,6 +929,17 @@
         "attributes": {
           "title": {
             "type": "string"
+          },
+          "image": {
+            "type": "media",
+            "multiple": false,
+            "required": false,
+            "allowedTypes": [
+              "images",
+              "files",
+              "videos",
+              "audios"
+            ]
           }
         },
         "kind": "collectionType"

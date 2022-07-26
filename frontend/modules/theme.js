@@ -70,6 +70,10 @@ export const theme = createTheme({
       fontSize: 12,
       fontWeight: 700,
     },
+    actionL: {
+      fontSize: 14,
+      fontWeight: 600
+    },
     subtitle1: {
       fontSize: 14,
     },
@@ -98,7 +102,7 @@ export const theme = createTheme({
     },
   },
   shape: {
-    borderRadius: "12px"
+    borderRadius: 12
   },
   components: {
     MuiButton: {

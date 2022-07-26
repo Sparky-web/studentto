@@ -62,9 +62,9 @@
           "sortable": true
         }
       },
-      "group": {
+      "groups": {
         "edit": {
-          "label": "group",
+          "label": "groups",
           "description": "",
           "placeholder": "",
           "visible": true,
@@ -72,9 +72,9 @@
           "mainField": "title"
         },
         "list": {
-          "label": "group",
-          "searchable": true,
-          "sortable": true
+          "label": "groups",
+          "searchable": false,
+          "sortable": false
         }
       },
       "professor": {
@@ -104,6 +104,34 @@
           "label": "subgroup",
           "searchable": true,
           "sortable": true
+        }
+      },
+      "comments": {
+        "edit": {
+          "label": "comments",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "comments",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "attachments": {
+        "edit": {
+          "label": "attachments",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "attachments",
+          "searchable": false,
+          "sortable": false
         }
       },
       "createdAt": {
@@ -163,11 +191,23 @@
             "name": "subgroup",
             "size": 4
           }
+        ],
+        [
+          {
+            "name": "comments",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "attachments",
+            "size": 12
+          }
         ]
       ],
       "editRelations": [
-        "group",
-        "professor"
+        "professor",
+        "groups"
       ]
     }
   },

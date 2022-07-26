@@ -56,9 +56,13 @@
           "name",
           "from",
           "to",
-          "group",
+          "groups",
           "professor",
-          "subgroup"
+          "subgroup",
+          "comments.user",
+          "comments.text",
+          "attachments.user",
+          "attachments.file"
         ]
       },
       "conditions": []
@@ -77,9 +81,13 @@
           "name",
           "from",
           "to",
-          "group",
+          "groups",
           "professor",
-          "subgroup"
+          "subgroup",
+          "comments.user",
+          "comments.text",
+          "attachments.user",
+          "attachments.file"
         ]
       },
       "conditions": []
@@ -92,9 +100,13 @@
           "name",
           "from",
           "to",
-          "group",
+          "groups",
           "professor",
-          "subgroup"
+          "subgroup",
+          "comments.user",
+          "comments.text",
+          "attachments.user",
+          "attachments.file"
         ]
       },
       "conditions": []
@@ -104,7 +116,8 @@
       "subject": "api::school.school",
       "properties": {
         "fields": [
-          "title"
+          "title",
+          "image"
         ]
       },
       "conditions": []
@@ -120,7 +133,8 @@
       "subject": "api::school.school",
       "properties": {
         "fields": [
-          "title"
+          "title",
+          "image"
         ]
       },
       "conditions": []
@@ -130,7 +144,8 @@
       "subject": "api::school.school",
       "properties": {
         "fields": [
-          "title"
+          "title",
+          "image"
         ]
       },
       "conditions": []

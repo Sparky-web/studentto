@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_main_attachments",
+  "info": {
+    "displayName": "attachment",
+    "icon": "paperclip"
+  },
+  "options": {},
+  "attributes": {
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "file": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

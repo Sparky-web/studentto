@@ -33,6 +33,16 @@
     },
     "subgroup": {
       "type": "integer"
+    },
+    "comments": {
+      "type": "component",
+      "repeatable": true,
+      "component": "main.comment"
+    },
+    "attachments": {
+      "type": "component",
+      "repeatable": true,
+      "component": "main.attachment"
     }
   }
 }
