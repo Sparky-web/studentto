@@ -3,6 +3,9 @@ import { createTheme } from "@mui/material";
 export const theme = createTheme({
   palette: {
     type: 'light',
+
+
+
     primary: {
       main: '#006FFD',
       light: '#6FBAFF',
@@ -148,6 +151,13 @@ export const theme = createTheme({
         }
       }
     },
+    MuiAvatar: {
+      styleOverrides: {
+        root: {
+          borderRadius: "40%"
+        }
+      }
+    },
     MuiButton: {
       styleOverrides: {
         root: {
@@ -183,6 +193,23 @@ export const theme = createTheme({
         elevation1: {
           // background: theme.palette.background.paper,
           boxShadow: "none"
+        }
+      }
+    },
+    MuiTypography: {
+      variants: [
+        {
+          props: { type: "section" },
+          style: {
+            marginLeft: "8px"
+          }
+        }
+      ]
+    },
+    MuiChip: {
+      root: {
+        styleOverrides: {
+              
         }
       }
     }
