@@ -8,7 +8,9 @@ export const theme = createTheme({
       light: '#6FBAFF',
       dark: '#006FFD',
       contrastText: '#f8f9fe',
-      lightest: '#EAF2FF'
+      lightest: '#EAF2FF',
+      highlight: '#B4DBFF',
+      neutral: '#8F9098'
     },
     secondary: {
       main: '#F03A47',
@@ -70,10 +72,6 @@ export const theme = createTheme({
       fontSize: 12,
       fontWeight: 700,
     },
-    actionL: {
-      fontSize: 14,
-      fontWeight: 600
-    },
     subtitle1: {
       fontSize: 14,
     },
@@ -86,25 +84,70 @@ export const theme = createTheme({
     body2: {
       fontSize: 12,
     },
-    button: {
-      fontSize: 12,
-      fontWeight: 600,
-    },
     caption: {
       letterSpacing: "0.05em",
       fontSize: 10,
       fontWeight: 600,
       textTransform: "uppercase"
     },
+    button: {
+      fontSize: 12,
+      fontWeight: 600,
+    },
     overline: {
       fontSize: 12,
       fontWeight: 600,
+    },
+    actionL: {
+      fontSize: 14,
+      fontWeight: 600
+    },
+    actionM: {
+      fontSize: 12,
+      fontWeight: 400
+    },
+    actionS: {
+      fontSize: 10,
+      fontWeight: 400
+    },
+    captionM: {
+      letterSpacing: "0.05em",
+      fontSize: 10,
+      fontWeight: 600,
+      textTransform: "uppercase"
+    },
+    bodyXL: {
+      fontSize: 18,
+      fontWeight: 400,
+    },
+    bodyL: {
+      fontSize: 16,
+      fontWeight: 400
+    },
+    bodyM: {
+      fontSize: 14,
+      fontWeight: 400
+    },
+    bodyS: {
+      fontSize: 12,
+      fontWeight: 400
+    },
+    bodyXS: {
+      fontSize: 10,
+      fontWeight: 400
     },
   },
   shape: {
     borderRadius: 12
   },
   components: {
+    MuiTabs: {
+      styleOverrides: {
+        indicator: {
+          backgroundColor: 'transparent'
+        }
+      }
+    },
     MuiButton: {
       styleOverrides: {
         root: {
