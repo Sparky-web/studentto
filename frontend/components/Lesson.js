@@ -64,7 +64,6 @@ export default function Lesson(props) {
 
                 </Stack>
             </Collapse>
-
         </Paper>
     )
 }
