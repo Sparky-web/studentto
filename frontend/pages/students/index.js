@@ -14,7 +14,10 @@ import WeekBar from "../../components/WeekBar";
 
 export default function Home() {
     const time = DateTime.now().setZone("system").setLocale("ru");
+
     const [lessons, setLessons] = useState(null)
+    const [dateRange, setDateRange] = useState(null)
+    
 
     useEffect(() => {
         async function init() {
@@ -27,7 +30,7 @@ export default function Home() {
             setLessons(data)
         }
         init()
-    }, [])
+    }, [dateRange])
 
 
     return (

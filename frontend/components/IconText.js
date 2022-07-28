@@ -10,7 +10,7 @@ export default function IconText(props) {
     return (
         <Stack spacing={0.5} direction="row" alignItems="center" color="text.hint" {...props} sx={{fontSize: fs}}>
             {Icon && <Icon sx={{fontSize: fs.fontSize + 4}}/>}
-            <Typography sx={{fontSize: "inherit"}}>{children}</Typography>
+            <Typography sx={{fontSize: "inherit"}} component="div">{children}</Typography>
         </Stack>
     )
 }

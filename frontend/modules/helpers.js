@@ -1,0 +1,1 @@
+export const getFullName = (user) => user && `${user.lastName} ${user.firstName} ${user.veryLastName}`

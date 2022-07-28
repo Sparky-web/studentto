@@ -6,20 +6,22 @@ import { CircularProgress } from "@mui/material";
 import Router from 'next/router';
 import _ from "lodash"
 import Cookies from "js-cookie";
+import axios from "axios";
+import strapi from "../modules/strapi";
 
 export const AppContext = createContext({})
 
 export const AppProvider = (props) => {
     const router = useRouter()
-    const [value, setValue] = useState({ user: "sosi" })
+    const [user, setUser] = useState(null)
     const [auth, setAuth] = useState(false)
+
     const { value: loading, setFalse: stopLoading, setTrue: startLoading } = useBoolean(false)
 
     useEffect(() => {
         checkAuth(router.asPath)
         
         Router.onRouteChangeStart = (url) => {
-            setAuth(false)
             startLoading()
         }
 
@@ -30,6 +32,19 @@ export const AppProvider = (props) => {
 
         Router.onRouteChangeError = (err, url) => stopLoading()
     }, [])
+    
+    useEffect(() => {
+        if(!auth) setUser({
+            group: 1,
+            school: 1
+        })
+        else {
+            strapi.getOne("users", "me", {populate: "*"}).then(setUser)
+        }
+
+        console.log("triggered")
+    }, [auth])
+
 
     function checkAuth (url) {
         const protectedRoutes = [
@@ -61,9 +76,9 @@ export const AppProvider = (props) => {
         <CircularProgress />
     </Grid>)
 
-    if(!auth) return null
+    if(!auth || !user) return null
 
-    return <AppContext.Provider value={value}>
+    return <AppContext.Provider value={{user}}>
         {props.children}
     </AppContext.Provider>
 }

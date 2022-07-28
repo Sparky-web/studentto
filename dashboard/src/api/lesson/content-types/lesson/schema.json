@@ -43,6 +43,11 @@
       "type": "component",
       "repeatable": true,
       "component": "main.attachment"
+    },
+    "classroom": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::classroom.classroom"
     }
   }
 }

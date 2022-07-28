@@ -11,6 +11,7 @@ import {
 import { useBoolean } from 'usehooks-ts'
 import { AttachFile, Person, Room } from "@mui/icons-material";
 import IconText from "./IconText";
+import { getFullName } from "../modules/helpers";
 
 export default function Lesson(props) {
     const { lesson } = props
@@ -32,8 +33,8 @@ export default function Lesson(props) {
                         </Avatar>
                     </ListItemAvatar>
                     <ListItemText primary="Математика" secondary={<Stack spacing={0.5} mt={0.5}>
-                        <IconText icon={Room} variant="subtitle2">405 каб. 1 корпус</IconText>
-                        <IconText icon={Person} variant="subtitle2">Еремеев Алексей Леонидович</IconText>
+                        <IconText icon={Room} variant="subtitle2">{lesson.classroom.title}: {lesson.classroom.building} корпус {lesson.classroom.floor} этаж</IconText>
+                        <IconText icon={Person} variant="subtitle2">{getFullName(lesson.professor)}</IconText>
                     </Stack>} />
                     <Chip label="11:30"/>
                 </ListItem>

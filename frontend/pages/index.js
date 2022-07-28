@@ -52,9 +52,9 @@ export default function Index({ image, imagePlaceholder }) {
 Index.getInitialProps = async ctx => {
     const [urtk] = await strapi.get("schools", { populate: "*" })
 
-    const placeholder = await getBase64ImageUrl(myLoader({ src: urtk.image?.data?.attributes.formats.thumbnail.url }))
+    const placeholder = await getBase64ImageUrl(myLoader({ src: urtk.image?.formats.thumbnail.url }))
     return {
-        image: urtk.image?.data?.attributes.url,
+        image: urtk.image?.url,
         imagePlaceholder: placeholder
     }
 }
