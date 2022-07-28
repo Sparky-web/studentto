@@ -38,7 +38,7 @@ export default function Home() {
             </Head>
 
             <Container>
-                <PageTitle text={"Расписание: ИС-115"}/>
+                <PageTitle text={"Расписание: ИС-115"} />
                 <Grid
                     display={"flex"}
                     direction="column"
@@ -46,8 +46,8 @@ export default function Home() {
                     justifyContent="center"
                     paddingBottom={8}
                 >
-                    <WeekBar />
-                    <Stack sx={{ width: '100%', maxWidth: 480 }} spacing={1}>
+                    <Stack sx={{ width: '100%', maxWidth: 390 }} spacing={1}>
+                        <WeekBar />
                         {lessons && lessons.map(lesson => <Lesson lesson={lesson} key={lesson.id} />)}
                         {!lessons && <LinearProgress />}
                     </Stack>

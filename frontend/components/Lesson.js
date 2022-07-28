@@ -35,7 +35,7 @@ export default function Lesson(props) {
                         <IconText icon={Room} variant="subtitle2">405 каб. 1 корпус</IconText>
                         <IconText icon={Person} variant="subtitle2">Еремеев Алексей Леонидович</IconText>
                     </Stack>} />
-                    <Chip label={<Typography variant="button">11:30</Typography>} sx={{ backgroundColor: false ? "primary.main" : "primary.lightest", color: false ? "white" : "primary.main" }} />
+                    <Chip label="11:30"/>
                 </ListItem>
             </ListItemButton>
             <Collapse in={isOpen}>
@@ -43,18 +43,19 @@ export default function Lesson(props) {
                     <Divider sx={{ width: "100%" }} />
 
                     <Stack spacing={1}>
-                        <Typography variant="caption" color="text.hint">Комментарий:</Typography>
+                        <Typography variant="captionM" color="text.hint">Комментарий:</Typography>
                         <Typography variant="body2">Гаев лучший</Typography>
                     </Stack>
 
                     <Stack spacing={1}>
-                        <Typography variant="caption" color="text.hint">Дополнительные материалы:</Typography>
+                        <Typography variant="captionM" color="text.hint">Дополнительные материалы:</Typography>
                         <Button
                             variant="link"
                             disableRipple
                             disableFocusRipple
                             disableTouchRipple
                             disableElevation
+                            sx={{fontSize: "actionM"}}
                             // sx={{ padding: 0.5 }}
                             startIcon={<AttachFile sx={{ fontSize: "small" }}
                             />}>

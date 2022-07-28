@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import Stack from '@mui/material/Stack';
 import { useRouter } from 'next/router';
-import Cookies from 'js-cookie';
 import ButtonBar from '../../components/ButtonBar';
 import { Container } from '@mui/system';
 import PageTitle from "../../components/PageTitle"

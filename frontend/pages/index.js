@@ -44,7 +44,6 @@ export default function Index({ image, imagePlaceholder }) {
                     </Stack>
                 </Stack>
 
-                {/* <Divider sx={{ marginTop: 1 }} /> */}
             </Container>
         </div>
     )
