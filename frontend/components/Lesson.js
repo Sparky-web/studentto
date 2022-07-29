@@ -12,12 +12,14 @@ import { useBoolean } from 'usehooks-ts'
 import { AttachFile, Person, Room } from "@mui/icons-material";
 import IconText from "./IconText";
 import { getFullName } from "../modules/helpers";
+import transformLesson from "../components/Helpers"
 
 export default function Lesson(props) {
     const { lesson } = props
     const { value: isOpen, toggle } = useBoolean(false)
 
     console.log(lesson)
+    transformLesson( props )
 
     return (
         <Paper elevation={isOpen ? 1 : 0} variant="elevation" >
