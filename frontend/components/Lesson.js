@@ -6,7 +6,7 @@ import {
     ListItemButton,
     ListItemText,
     Typography,
-    Chip, Stack, Divider, Link, Button, Collapse
+    Chip, Stack, Divider, Button, Collapse
 } from "@mui/material";
 import { useBoolean } from 'usehooks-ts'
 import { AttachFile, Person, Room } from "@mui/icons-material";
@@ -33,7 +33,7 @@ export default function Lesson(props) {
                         </Avatar>
                     </ListItemAvatar>
                     <ListItemText primary="Математика" secondary={<Stack spacing={0.5} mt={0.5}>
-                        <IconText icon={Room} variant="subtitle2">{lesson.classroom.title}: {lesson.classroom.building} корпус {lesson.classroom.floor} этаж</IconText>
+                        <IconText icon={Room} variant="subtitle2">{lesson.classroom?.title}: {lesson.classroom?.building} корпус {lesson.classroom?.floor} этаж</IconText>
                         <IconText icon={Person} variant="subtitle2">{getFullName(lesson.professor)}</IconText>
                     </Stack>} />
                     <Chip label="11:30"/>
@@ -42,12 +42,10 @@ export default function Lesson(props) {
             <Collapse in={isOpen}>
                 <Stack spacing={2} sx={{ width: "100%", pl: 2, pr: 2, pb: 2 }} >
                     <Divider sx={{ width: "100%" }} />
-
                     <Stack spacing={1}>
                         <Typography variant="captionM" color="text.hint">Комментарий:</Typography>
-                        <Typography variant="body2">Гаев лучший</Typography>
+                        <Typography variant="body2">{lesson.comments[0].text}</Typography>
                     </Stack>
-
                     <Stack spacing={1}>
                         <Typography variant="captionM" color="text.hint">Дополнительные материалы:</Typography>
                         <Button
@@ -63,7 +61,6 @@ export default function Lesson(props) {
                             Лабораторная работа 3.docx
                         </Button>
                     </Stack>
-
                 </Stack>
             </Collapse>
         </Paper>

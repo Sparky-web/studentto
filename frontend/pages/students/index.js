@@ -1,9 +1,8 @@
 import Head from 'next/head'
 import { useEffect, useState } from "react";
-import { LinearProgress, Modal, Typography } from "@mui/material";
+import { LinearProgress } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
 import Lesson from "../../components/Lesson.js"
 import ButtonBar from "../../components/ButtonBar"
 import { DateTime } from "luxon";
@@ -17,7 +16,6 @@ export default function Home() {
 
     const [lessons, setLessons] = useState(null)
     const [dateRange, setDateRange] = useState(null)
-    
 
     useEffect(() => {
         async function init() {
@@ -31,7 +29,6 @@ export default function Home() {
         }
         init()
     }, [dateRange])
-
 
     return (
         <div>
