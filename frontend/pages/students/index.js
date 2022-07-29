@@ -10,6 +10,7 @@ import strapi from "../../modules/strapi"
 import { Container } from '@mui/system';
 import PageTitle from "./../../components/PageTitle"
 import WeekBar from "../../components/WeekBar";
+import transformLesson from "../../components/Helpers";
 
 export default function Home() {
     const time = DateTime.now().setZone("system").setLocale("ru");
@@ -21,7 +22,7 @@ export default function Home() {
         async function init() {
             const data = await strapi.get("lessons", {
                 filters: {
-                    groups: 1,
+                    groups: 1
                 },
                 populate: "*"
             })
@@ -29,6 +30,7 @@ export default function Home() {
         }
         init()
     }, [dateRange])
+    transformLesson( lessons )
 
     return (
         <div>

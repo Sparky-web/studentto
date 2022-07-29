@@ -18,8 +18,7 @@ export default function Lesson(props) {
     const { lesson } = props
     const { value: isOpen, toggle } = useBoolean(false)
 
-    console.log(lesson)
-    transformLesson( props )
+    //console.log(lesson)
 
     return (
         <Paper elevation={isOpen ? 1 : 0} variant="elevation" >
@@ -34,7 +33,7 @@ export default function Lesson(props) {
                             <Typography color="primary" variant="actionL">1</Typography>
                         </Avatar>
                     </ListItemAvatar>
-                    <ListItemText primary="Математика" secondary={<Stack spacing={0.5} mt={0.5}>
+                    <ListItemText primary={lesson.name} secondary={<Stack spacing={0.5} mt={0.5}>
                         <IconText icon={Room} variant="subtitle2">{lesson.classroom?.title}: {lesson.classroom?.building} корпус {lesson.classroom?.floor} этаж</IconText>
                         <IconText icon={Person} variant="subtitle2">{getFullName(lesson.professor)}</IconText>
                     </Stack>} />
@@ -46,7 +45,7 @@ export default function Lesson(props) {
                     <Divider sx={{ width: "100%" }} />
                     <Stack spacing={1}>
                         <Typography variant="captionM" color="text.hint">Комментарий:</Typography>
-                        <Typography variant="body2">{lesson.comments[0].text}</Typography>
+                        <Typography variant="body2">{lesson.comments[0]?.text}</Typography>
                     </Stack>
                     <Stack spacing={1}>
                         <Typography variant="captionM" color="text.hint">Дополнительные материалы:</Typography>
