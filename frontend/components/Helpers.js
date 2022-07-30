@@ -25,7 +25,7 @@ export default function transformLesson ( lessons ) {
                 const lineMassive = days.length
                 for(let i = 0; i < lineMassive; i++){
                     //console.log(lesson.from === days[i].lessons[0].from)
-                    if(DateTime.fromISO(lesson.from).toFormat('cccc D') === DateTime.fromISO(days[i].lessons[0].from).toFormat('cccc D')){
+                    if(DateTime.fromISO(lesson.from).toFormat('D') === DateTime.fromISO(days[i].lessons[0].from).toFormat('D')){
                         days[i].lessons.push(lesson)
                         return;
                     }
