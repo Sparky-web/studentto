@@ -4,19 +4,23 @@ export default function transformLesson ( lessons ) {
 
     const days = []
 
+    function addDay ( lesson , time ) {
+        const day = {
+            dayIndex: time.toFormat('d'),
+            weekday: time.toFormat('cccc'),
+            shortWeekDay: time.toFormat('ccc'),
+            fullDayTitle: time.toFormat('cccc D'),//toLocaleString(DateTime.DATE_HUGE)
+            lessons: [
+                lesson
+            ]
+        }
+        days.push(day)
+    }
+
     lessons?.map(lesson => {
             const time = DateTime.fromISO(lesson.from).setLocale('ru')
             if (!days.length) {
-                const day = {
-                    dayIndex: time.toFormat('d'),
-                    weekday: time.toFormat('cccc'),
-                    shortWeekDay: time.toFormat('ccc'),
-                    fullDayTitle: time.toFormat('cccc D'),//toLocaleString(DateTime.DATE_HUGE)
-                    lessons: [
-                        lesson
-                    ]
-                }
-                days.push(day)
+                addDay( lesson , time )
             } else {
                 const lineMassive = days.length
                 for(let i = 0; i < lineMassive; i++){
@@ -26,16 +30,7 @@ export default function transformLesson ( lessons ) {
                         return;
                     }
                 }
-                const day = {
-                    dayIndex: time.toFormat('d'),
-                    weekday: time.toFormat('cccc'),
-                    shortWeekDay: time.toFormat('ccc'),
-                    fullDayTitle: time.toFormat('cccc D'),//toLocaleString(DateTime.DATE_HUGE)
-                    lessons: [
-                        lesson
-                    ]
-                }
-                days.push(day)
+                addDay( lesson , time )
             }
         }
     )
