@@ -35,15 +35,15 @@ export default function transformLesson ( lessons ) {
 
 const timeTable = [ "08:30", "10:10", "12:10", "14:10", "16:00", "17:40", "19:20" ]
 function transformTime ( days ) {
-    let index = 0;
+    let index;
     for(let i = 0; i < days.length; i++) {
+        index = 0
         for(let j = 0; j < days[i].lessons.length; j++) {
+            console.log(j)
             for(let g = 0; g < timeTable.length; g++){
-              //  console.log(getDate(days[i].lessons[j].from).toLocaleString(DateTime.TIME_24_SIMPLE),' ' , timeTable[g])
                 if(getDate(days[i].lessons[j].from).toLocaleString(DateTime.TIME_24_SIMPLE) === timeTable[g])
                 {
                     if(g < index - 1 || index == 0) {
-                        // if(getDate(days[i].lessons[j].from).toLocaleString(DateTime.TIME_24_SIMPLE) === timeTable[g] && g < index || index == 0){
                         index = g + 1;
                         days[i].fullDayTitle =
                             (getDate(days[i].lessons[j].from).toFormat('cccc D') + ' ' + days[i].lessons.length + ' пар(ы) с ' + index + ' пары (' + days[i].lessons[j].name + ')');
